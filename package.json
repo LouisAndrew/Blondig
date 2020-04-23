@@ -11,6 +11,7 @@
     "gatsby-plugin-manifest": "^2.3.5",
     "gatsby-plugin-offline": "^3.1.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.5.6",
     "gatsby-plugin-styled-components": "^3.2.3",
     "gatsby-source-filesystem": "^2.2.4",
@@ -23,6 +24,7 @@
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
+    "jest": "^25.4.0",
     "prettier": "2.0.4"
   },
   "keywords": [
@@ -36,7 +38,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "gatsby jest"
   },
   "repository": {
     "type": "git",

@@ -8,6 +8,7 @@ import Logo from '../../assets/logo.svg'
 const Nav = () => {
 
       const click = () => {
+            console.log('aa')
             document.getElementById('ul').classList.toggle('active')
       }
 
@@ -35,7 +36,7 @@ const Content = styled.nav`
       position: relative;
 
       #logo {
-            height: 5.6vh
+            height: 4vh
       }
 
       #expand {
@@ -110,9 +111,9 @@ const Ul = styled.ul`
 
             a {
                   color: #000;
-                  padding: 2.8vh 2vw;
+                  padding: 2vh 2vw;
                   text-decoration: none;
-                  font-weight: bold;
+                  font-size: 0.9rem;
             }
 
             html.no-touch &:hover {
@@ -134,16 +135,18 @@ const Ul = styled.ul`
             width: 100%;
             top: 8vh;
             left: 0;
-            max-width: 0;
+            max-height: 0;
 
             padding: 0;
 
             overflow: hidden;
             transition: 0.2s;
+            z-index: 3;
 
             &.active {
-                  max-width: 100%;
+                  max-height: 100vh;
                   padding: 5vh;
+                  background-color: rgba(221, 221, 221, 0.6);
             }
       }
 `     

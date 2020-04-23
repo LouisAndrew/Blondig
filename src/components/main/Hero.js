@@ -1,11 +1,71 @@
 import React from 'react'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 
-const Hero = () => {
+import Button from '../Button'
+
+const Hero = ({ data: { node } }) => {
+
+      console.log(node)
+
+      //fluid isn't really great here?
+      const imgUrl = node.content[0].items[0].media[0].image.asset.fluid
+      const url = node.content[0].items[0].media[0].image.asset.url
+
+      console.log(url)
+
       return (
-            <div>
-                  
-            </div>
+            <Container img={url} >
+                  {/* <Img  className='img' fluid={imgUrl} /> */}
+                  <Content className='wrap'>
+                        <h2></h2>
+                        <div>
+                              <Button text='Shop Now!' color='#fff' bColor='blue' />
+                        </div>
+                  </Content>
+            </Container>
       )
 }
 
 export default Hero
+
+const Content = styled.section`
+      ${({ theme }) => theme.fitContainer()};
+      ${({ theme }) => theme.center()};
+
+      z-index: 2;
+
+      div {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            padding: 10% 0;
+
+            button {
+                  
+            }
+      }
+`
+
+const Container = styled.div`
+      height: 90vh;
+      width: 100%;
+      ${({ theme }) => theme.center()};
+
+      background-image: url(${props => props.img});
+      background-size: cover;
+      background-position: center;
+
+      position: relative;
+
+      .img {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+
+            z-index: 1;
+            ${({ theme }) => theme.fitContainer()};
+      }
+`

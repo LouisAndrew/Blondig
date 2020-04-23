@@ -14,7 +14,7 @@ export default Button
 const Container = styled.button`
       
       padding: 1rem 2rem;
-      background-color: ${props => {
+      color: ${props => {
 
             switch (props.color) {
                   case 'red':
@@ -26,15 +26,24 @@ const Container = styled.button`
             }
       }};
       
-      color: ${props => {
+      background-color: ${props => {
 
-            switch (props.color) {
+            switch (props.bColor) {
                   case 'red':
                         return props.theme.red
                   case 'blue':
                         return props.theme.blue
                   default:
-                        return props.color
+                        return props.bColor
             }
-      }}
+      }};
+
+      border: none;
+      outline: none;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      font-weight: 600;
+
+      html.no-touch &:hover {
+            cursor: pointer;
+      }
 `

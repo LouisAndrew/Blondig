@@ -55,10 +55,10 @@ const Layout = props => {
             }
 
             .wrap {
-                  max-width: 950px;
+                  padding: 0 10%;
             }
 
-            @media screen and (max-width: 1000px) {
+            @media screen and (max-width: 1150px) {
                   
                   :root {
                         font-size: 14px;

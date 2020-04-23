@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 
 import Button from '../Button'
 
-const Hero = ({ data: { node } }) => {
+const Hero = ({ data: { node } }, className) => {
 
       console.log(node)
 
@@ -15,10 +16,9 @@ const Hero = ({ data: { node } }) => {
       console.log(url)
 
       return (
-            <Container img={url} >
+            <Container img={url}>
                   {/* <Img  className='img' fluid={imgUrl} /> */}
                   <Content className='wrap'>
-                        <h2></h2>
                         <div>
                               <Button text='Shop Now!' color='#fff' bColor='blue' />
                         </div>

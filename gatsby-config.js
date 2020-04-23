@@ -5,6 +5,22 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'vuqbil7z',
+        dataset: 'dev',
+
+        // a token with read permissions is required
+        // if you have a private dataset
+        // token: process.env.MY_SANITY_TOKEN,
+
+        // If the Sanity GraphQL API was deployed using `--tag <name>`,
+        // use `graphqlTag` to specify the tag name. Defaults to `default`.
+        graphqlTag: 'default',
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

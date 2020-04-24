@@ -3,12 +3,14 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import checkTouch from '../helper/checkTouch'
 import Nav from './Nav'
+import Foot from './Foot'
 
 const Layout = props => {
 
       const theme = {
-            red: '#FF8A00',
+            red: '#B83C2F',
             blue: '#3C64B1',
+            redLight: '#FF8A00',
             center: () => (`
                   display: flex;
                   align-itmes: center;
@@ -22,7 +24,7 @@ const Layout = props => {
 
       const GlobalStyle = createGlobalStyle`
 
-            @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300&display=swap');
             :root {
                   font-size: 16px;
                   font-family: 'Muli', sans-serif;
@@ -79,6 +81,20 @@ const Layout = props => {
                         padding: 0 10%;
                   }
             }
+
+            @media screen and (min-width: 2000px) {
+
+                  :root {
+                        font-size: 20px;
+                  }
+            }
+
+            @media screen and (min-width: 3000px) {
+
+            :root {
+                  font-size: 24px;
+            }
+}
       `
       
       checkTouch()
@@ -88,6 +104,7 @@ const Layout = props => {
                   <GlobalStyle />
                   <Nav />
                   <main>{props.children} </main>
+                  <Foot />
             </ThemeProvider>
       )
 }

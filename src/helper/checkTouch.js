@@ -5,7 +5,6 @@ const checkTouch = () => {
             document.documentElement.classList.remove('no-touch')
       }
       
-      console.log('aa')
       document.documentElement.classList.add('no-touch')
       document.addEventListener('touchstart', () => {
             removeNoTouch()

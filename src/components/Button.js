@@ -39,9 +39,10 @@ const Container = styled.button`
       }};
 
       border: none;
+      border-radius: 15px;
       outline: none;
       box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-      font-weight: 600;
+      font-weight: bold;
 
       html.no-touch &:hover {
             cursor: pointer;

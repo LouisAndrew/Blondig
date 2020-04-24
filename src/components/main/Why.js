@@ -2,18 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
+export const extract = (position, array) => {
+      const temp = array.filter(content => content.position === position)
+
+      return temp[0] ? temp[0] : false
+}
+
 const Why = ({ data: { node: { content } } }) => {
-
-      const extract = (position, array) => {
-            const temp = array.filter(content => content.position === position)
-
-            return temp[0] ? temp[0] : false
-      }
 
       const mainData = extract('main', content)
       const miscData = extract('misc', content)
-
-      console.log(miscData)
 
       const fluid = mainData.items[0].media[0].image.asset.fluid
 
@@ -42,8 +40,7 @@ const Content = styled.section`
 
       display: flex;
 
-      /* background-color: pink; */
-      z-index: 2;
+      background-color: #F4ECD8;
 
       .left {
             width: 40%
@@ -58,6 +55,7 @@ const Content = styled.section`
             h2 {
                   text-align: center;
                   margin-bottom: 5vh;
+                  color: ${({ theme }) => theme.red};
             }
 
             @media screen and (max-width: 900px) and (orientation: portrait) {
@@ -90,6 +88,7 @@ const Container = styled.div`
             left: 0;
             top: 0;
             height: 100%;
+            z-index: 2;
 
             @media screen and (max-width: 464px) {
                   display: none;
@@ -127,10 +126,22 @@ const Card = styled.div`
             
             h3 {
                   margin-bottom: 2rem;
+                  /* wild card */
+                  color: #482700;
             }
       }
 
       @media screen and (max-width: 900px) and (orientation: portrait) {
             
+            .card-img {
+                  width: 25%;
+            }
+      }
+
+      @media screen and (max-width: 464px) and (orientation: portrait) {
+            
+            .card-img {
+                  width: 40%;
+            }
       }
 `

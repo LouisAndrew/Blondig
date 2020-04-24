@@ -5,6 +5,7 @@ import Layout from '../layout'
 import SEO from "../components/seo"
 import Hero from "../components/main/Hero"
 import Why from "../components/main/Why"
+import Proccess from "../components/main/Proccess"
 
 const IndexPage = ({ data: { allSanityHomepage: { edges } } }) => {
 
@@ -16,11 +17,13 @@ const IndexPage = ({ data: { allSanityHomepage: { edges } } }) => {
 
     const heroData = extract('hero', edges)
     const whyData = extract('why-us', edges)
+    const proccessData = extract('proccess', edges)
 
     return (
         <Layout>
             <Hero data={heroData} />
             <Why data={whyData} />
+            <Proccess data={proccessData} />
         </Layout>
     )
 }

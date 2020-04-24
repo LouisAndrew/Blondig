@@ -7,20 +7,16 @@ import Button from '../Button'
 
 const Hero = ({ data: { node } }, className) => {
 
-      console.log(node)
-
       //fluid isn't really great here?
       const imgUrl = node.content[0].items[0].media[0].image.asset.fluid
       const url = node.content[0].items[0].media[0].image.asset.url
-
-      console.log(url)
 
       return (
             <Container img={url}>
                   {/* <Img  className='img' fluid={imgUrl} /> */}
                   <Content className='wrap'>
                         <div>
-                              <Button text='Shop Now!' color='#fff' bColor='blue' />
+                              <Button text='Shop Now!' color='#fff' bColor='red' />
                         </div>
                   </Content>
             </Container>
@@ -50,7 +46,7 @@ const Content = styled.section`
 `
 
 const Container = styled.div`
-      height: 90vh;
+      height: 100vh;
       width: 100%;
       ${({ theme }) => theme.center()};
 

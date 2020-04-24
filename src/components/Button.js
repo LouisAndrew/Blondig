@@ -21,6 +21,8 @@ const Container = styled.button`
                         return props.theme.red
                   case 'blue':
                         return props.theme.blue
+                  case 'redLight':
+                        return props.theme.redLight
                   default:
                         return props.color
             }
@@ -33,6 +35,8 @@ const Container = styled.button`
                         return props.theme.red
                   case 'blue':
                         return props.theme.blue
+                  case 'redLight':
+                        return props.theme.redLight
                   default:
                         return props.bColor
             }

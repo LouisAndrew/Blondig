@@ -1,14 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Logo from '../../assets/logo.svg'
-import tp from '../../assets/socmeds/tp.jpg'
-import fb from '../../assets/socmeds/fb.jpg'
-import ig from '../../assets/socmeds/ig.jpg'
-import wa from '../../assets/socmeds/wa.jpg'
-import sp from '../../assets/socmeds/sp.jpg'
-
 
 const Foot = () => {
 
@@ -41,7 +36,7 @@ const FootNav = () => (
             <li><Link to='/sizing'>Size Chart</Link></li>
             <li><Logo id='logo-foot' /></li>
             <li><Link to='/sizing'>Harga</Link></li>
-            <li><Link to='/gallery'>Gallery</Link></li>
+            {/* <li><Link to='/gallery'>Gallery</Link></li> */}
             <li><Link to='/contact'>Hubungi Kami</Link></li>
       </NavCont>
 )     
@@ -61,30 +56,78 @@ const NavCont = styled.ul`
             color: #000;
       }
 
+      @media screen and (max-width: 464px) {
+            
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 10%;
+
+            li {
+                  margin: 1vh 0;
+            }
+      }
 `
 
-const FootIcons = () => (
-      <IconCont>
-            <LI img={wa}><Link to='/'><img src={wa} /> </Link> </LI>
-            <LI img={ig}><Link to='/'><img src={wa} /></Link> </LI>
-            <LI img={fb}><Link to='/'><img src={wa} /></Link> </LI>
-            <LI img={sp}><Link to='/'><img src={wa} /></Link> </LI>
-            <LI img={tp}><Link to='/'><img src={wa} /> </Link> </LI>
-      </IconCont>
-)
+const FootIcons = () =>{
+      const data = useStaticQuery(graphql`
+            query footQuery {
+                  allSanityMisc(filter: {miscId: {eq: "socmed"}}) {
+                        edges {
+                              node {
+                                    items {
+                                          media {
+                                                caption
+                                                image {
+                                                      asset { 
+                                                            fluid {
+                                                                  ...GatsbySanityImageFluid
+                                                            }
+                                                      }
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+          
+      `)
+
+      const imgs = data.allSanityMisc.edges[0].node.items[0].media
+
+      const images = imgs.map(img => <LI><Link to={img.caption}><Img className='img' fluid={img.image.asset.fluid} /> </Link> </LI>)
+
+      return (
+            <IconCont>
+                  {
+                        images
+                  }
+            </IconCont>
+      )
+}
 
 const LI = styled.li`
       
-      height: 3vh;
-      width: 3vh;
+      height: 6vh;
+      width: 6vh;
       border-radius: 50%;
 
-      img {
-            height: 100%;
-            width: 100%;
+      margin: 5vh 2vh;
+
+      .img {
+            ${({ theme }) => theme.fitContainer()};
+      }
+
+      @media screen and (max-width: 850px) {
+            
+            height: 4vh;
+            width: 4vh;
       }
 ` 
 
 const IconCont = styled.ul`
       display: flex;
+      list-style: none;
+
+      justify-content: center;;
 `

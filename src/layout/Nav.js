@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { useLocation } from '@reach/router'
 
 import Expand from '../../assets/expand.svg'
 import Logo from '../../assets/logo.svg'
@@ -10,7 +11,6 @@ import Logo from '../../assets/logo.svg'
 const Nav = () => {
 
       const click = () => {
-            console.log('aa')
             document.getElementById('ul').classList.toggle('active')
       }
 
@@ -29,7 +29,7 @@ export default Nav
 
 const Content = styled.nav`
       width: 100%;
-      padding: 1vh 10% !important;
+      /* padding: 1vh 10% !important; */
 
       display: flex;
       align-items: center;
@@ -43,6 +43,7 @@ const Content = styled.nav`
 
       #logo {
             height: 6vh;
+            padding: 1vh 0;
       }
 
       #expand {
@@ -96,13 +97,27 @@ const Links = () => {
             }
       ]
 
+      const location = useLocation()
+      // const locId = location.pathname
+
+      const addUline = locId => {
+            document.getElementById(locId).classList.add('on')
+      }
+
+      useEffect(() => {
+
+            if (location.pathname) {
+                  addUline(location.pathname)
+            }
+      })
+
       return (
             <Ul id='ul'>
                   {/* {
                         availLinks.map(link => <li id={link.dropdown && 'dropdown'}><Link to={link.to}>{link.name}</Link> </li>)
                   } */}
-                   <li><Link to='/'>Home</Link> </li>
-                   <li><Link to='/sizing'>Size Chart</Link> </li>
+                   <li><Link id='/' to='/'>Home</Link> </li>
+                   <li><Link id='/sizing' to='/sizing'>Size Chart</Link> </li>
                    <li className='dropdown-container'>
                          <span>Harga <FontAwesomeIcon icon={faCaretDown} /></span> 
                          <div className='dropdown'>
@@ -112,8 +127,8 @@ const Links = () => {
                                <Link to='/'>Pricelist Printable</Link>
                          </div>
                    </li>
-                   <li><Link to='/gallery'>Gallery</Link> </li>
-                    <li><Link to='contact'>Hubungi Kami</Link> </li>
+                   <li><Link id='/gallery' to='/gallery'>Gallery</Link> </li>
+                    <li><Link id='/contact' to='contact'>Hubungi Kami</Link> </li>
             </Ul>
       )
 }
@@ -127,19 +142,26 @@ const Ul = styled.ul`
       li {  
             ${({ theme }) => theme.center()};
             position: relative;
+            transition: .4s;
 
             a, span {
-                  color: #000;
+                  color: #555;
                   padding: 2vh 2vw;
                   text-decoration: none;
                   font-size: 0.9rem;
                   font-weight: bold;
+                  transition: .4s;
+            }
+
+            a.on {
+                  color: #000;
+                  border-bottom: 2px solid #000;
             }
 
             html.no-touch &:hover {
                   
                   a {
-                        text-decoration: underline;
+                        color: #000;
                   }
             }
 
@@ -173,10 +195,11 @@ const Ul = styled.ul`
 
                               a {
                                     text-decoration: none;
+                                    color: #555;
                               }
 
                               a:hover {
-                                    background-color: rgba(150, 150, 150, 0.6);
+                                    color: #000;
                               }
                         }
                   }

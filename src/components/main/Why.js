@@ -2,16 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
-export const extract = (position, array) => {
-      const temp = array.filter(content => content.position === position)
-
-      return temp[0] ? temp[0] : false
-}
+import { extractPosMain } from '../../helper/extracts'
 
 const Why = ({ data: { node: { content } } }) => {
 
-      const mainData = extract('main', content)
-      const miscData = extract('misc', content)
+      const mainData = extractPosMain('main', content)
+      const miscData = extractPosMain('misc', content)
 
       const fluid = mainData.items[0].media[0].image.asset.fluid
 

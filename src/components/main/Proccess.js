@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import { extract } from './Why'
+import { extractPosMain } from '../../helper/extracts'
 
 const Proccess = ({ data: { node: { content } } }) => {
 
-      const mainData = extract('main', content)
-      const miscData = extract('misc', content)
-
-      console.log(mainData)
-      console.log(miscData, 'misc')
+      const mainData = extractPosMain('main', content)
+      const miscData = extractPosMain('misc', content)
 
       const miscCards = miscData.items.map(dt => <WhyCard heading={dt.heading} subheading={dt.subheading} fluid={dt.media[0].image.asset.fluid} />)
 

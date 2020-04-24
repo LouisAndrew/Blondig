@@ -16,7 +16,7 @@ const Hero = ({ data: { node } }, className) => {
                   {/* <Img  className='img' fluid={imgUrl} /> */}
                   <Content className='wrap'>
                         <div>
-                              <Button text='Shop Now!' color='#fff' bColor='red' />
+                              <Button text='Shop Now!' color='#fff' bColor='redLight' />
                         </div>
                   </Content>
             </Container>
@@ -37,7 +37,7 @@ const Content = styled.section`
             flex-direction: column;
             justify-content: flex-end;
 
-            padding: 10% 0;
+            padding: 8% 0;
 
             button {
                   

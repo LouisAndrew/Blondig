@@ -6,18 +6,13 @@ import SEO from "../components/seo"
 import Hero from "../components/main/Hero"
 import Why from "../components/main/Why"
 import Proccess from "../components/main/Proccess"
+import { extractPositionId } from '../helper/extracts'
 
 const IndexPage = ({ data: { allSanityHomepage: { edges } } }) => {
 
-    const extract = (id, array) => {
-        
-        const extractedData = array.filter(dt => dt.node.layoutId === id)
-        return extractedData[0] ? extractedData[0] : false
-    }
-
-    const heroData = extract('hero', edges)
-    const whyData = extract('why-us', edges)
-    const proccessData = extract('proccess', edges)
+    const heroData = extractPositionId('hero', edges)
+    const whyData = extractPositionId('why-us', edges)
+    const proccessData = extractPositionId('proccess', edges)
 
     return (
         <Layout>

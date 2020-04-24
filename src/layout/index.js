@@ -10,7 +10,7 @@ const Layout = props => {
       const theme = {
             red: '#B83C2F',
             blue: '#3C64B1',
-            redLight: '#FF8A00',
+            redLight: '#EF6540',
             center: () => (`
                   display: flex;
                   align-itmes: center;
@@ -24,10 +24,9 @@ const Layout = props => {
 
       const GlobalStyle = createGlobalStyle`
 
-            @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Muli:wght@500;600;800&family=Roboto&display=swap');
             :root {
                   font-size: 16px;
-                  font-family: 'Muli', sans-serif;
             }
 
             * {
@@ -48,8 +47,14 @@ const Layout = props => {
                   font-size: 1.5rem;
             }
 
-            p, button, a {
+            h1, h2, h3, h4, h5, h6 {
+                  font-family: 'Muli', sans-serif;
+                  font-weight: 600;
+            }
+
+            p, button, a, span {
                   font-size: 1rem;
+                  font-family: 'Roboto', sans-serif;
             }
 
             h5 {

@@ -17,7 +17,12 @@ export default {
                   name: 'availableSizes',
                   title: 'Available Sizes',
                   type: 'array',
-                  of: [ { type: 'size' } ]
+                  of: [ 
+                        { 
+                              type: 'reference', 
+                              to: [{ type: 'size' }] 
+                        } 
+                  ]
             },
             {
                   name: 'price',

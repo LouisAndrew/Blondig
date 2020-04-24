@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import checkTouch from '../helper/checkTouch'
@@ -102,7 +102,9 @@ const Layout = props => {
 }
       `
       
-      checkTouch()
+      useEffect(() => {
+            checkTouch()
+      })
 
       return (
             <ThemeProvider theme={theme}>

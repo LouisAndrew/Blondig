@@ -15,6 +15,7 @@ const Bot = ({ node: { content } }) => {
                                     mainData.items.map(itm => <Card color='blue' heading={itm.heading} subheading={itm.misc} />)
                               }
                         </div>
+                        <h2 className='bt'>{miscData.button} </h2> 
                         <div className='bot'>
                               {
                                     miscData.items.map(itm => <Card color='red' heading={itm.heading} subheading={itm.misc} />)
@@ -29,16 +30,62 @@ export default Bot
 
 const Content = styled.section`
       width: 60%;
+      margin-top: -5vh;
+
+      h2 {
+            margin: 5vh 0;
+      }
 
       .top {
 
             display: flex;
             justify-content: space-between;
+
       }
 
       .bot {
             display: flex;
             justify-content: space-evenly
+      }
+
+      @media screen and (max-width: 850px) {
+            
+            h2.bt {
+                  text-align: center;
+            }
+
+            .top {
+
+                  justify-content: space-evenly;
+                  flex-wrap: wrap;
+
+                  .cnt {
+                        width: 45% !important;
+                  }
+            }
+
+            .bot {
+                  flex-wrap: wrap;
+
+                  .cnt {
+                        width: 90% !important;
+                        /* flex-direction: row; */
+                  }
+            }
+      }
+
+      @media screen and (max-width: 464px) {
+            
+            h2 {
+                  text-align: center;
+            }
+
+            .top {
+
+                  .cnt {
+                        width: 90% !important;
+                  }
+            }
       }
 `
 
@@ -48,7 +95,7 @@ const Container = styled.div`
 `
 
 const Card = ({heading, subheading, color}) => (
-      <CardCont $color={color}>
+      <CardCont className='cnt' $color={color}>
             <h1>{heading} </h1>
             <p>{subheading} </p>
       </CardCont>

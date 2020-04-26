@@ -116,90 +116,97 @@ const Links = () => {
                   {/* {
                         availLinks.map(link => <li id={link.dropdown && 'dropdown'}><Link to={link.to}>{link.name}</Link> </li>)
                   } */}
-                   <li><Link id='/' to='/'>Home</Link> </li>
-                   <li><Link id='/sizing' to='/sizing'>Size Chart</Link> </li>
-                   <li className='dropdown-container'>
-                         <span>Harga <FontAwesomeIcon icon={faCaretDown} /></span> 
-                         <div className='dropdown'>
-                               <Link to='/'>Cek Harga Kaosmu!</Link>
-                               <Link to='/'>Pricelist DTG</Link>
-                               <Link to='/'>Pricelist Polyfek</Link>
-                               <Link to='/'>Pricelist Printable</Link>
-                         </div>
-                   </li>
-                   <li><Link id='/gallery' to='/gallery'>Gallery</Link> </li>
-                    <li><Link id='/contact' to='contact'>Hubungi Kami</Link> </li>
+                   <div className='cnp'>
+                        <li><Link id='/' to='/'>Home</Link> </li>
+                        <li><Link id='/sizing' to='/sizing'>Size Chart</Link> </li>
+                        <li className='dropdown-container'>
+                              <span>Harga <FontAwesomeIcon icon={faCaretDown} /></span> 
+                              <div className='dropdown'>
+                                    <Link to='/'>Cek Harga Kaosmu!</Link>
+                                    <Link to='/'>Pricelist DTG</Link>
+                                    <Link to='/'>Pricelist Polyfek</Link>
+                                    <Link to='/'>Pricelist Printable</Link>
+                              </div>
+                        </li>
+                        <li><Link id='/gallery' to='/gallery'>Gallery</Link> </li>
+                        <li><Link id='/contact' to='contact'>Hubungi Kami</Link> </li>
+                   </div>
             </Ul>
       )
 }
 
 const Ul = styled.ul`
       height: 100%;
-      display: flex;
-      align-items: center;
+
       list-style: none;
 
-      li {  
-            ${({ theme }) => theme.center()};
-            position: relative;
-            transition: .4s;
+      .cnp {
 
-            a, span {
-                  color: #555;
-                  padding: 2vh 2vw;
-                  text-decoration: none;
-                  font-size: 0.9rem;
-                  /* font-weight: bold; */
-                  transition: .4s;
-            }
+            display: flex;
+            align-items: center;
 
-            a.on {
-                  color: #000;
-                  border-bottom: 2px solid #000;
-            }
-
-            html.no-touch &:hover {
-                  
-                  a {
-                        color: #000;
-                  }
-            }
-
-            &.dropdown-container {
-                  display: flex;
-                  flex-direction: column;
-
+            li {  
+                  ${({ theme }) => theme.center()};
                   position: relative;
-                  /* overflow: hidden; */
+                  transition: .4s;
 
-                  .dropdown {
-                        
-                        display: flex;
-                        flex-direction: column;
-                        position: absolute;
-                        top: 6vh;
-                        background-color: rgba(233, 233, 233, 0.8);
-                        padding: 0;
-                        max-height: 0;
-                        overflow: hidden;
-
+                  a, span {
+                        color: #555;
+                        padding: 2vh 2vw;
+                        text-decoration: none;
+                        font-size: 0.9rem;
+                        /* font-weight: bold; */
                         transition: .4s;
                   }
 
-                  &:hover {
+                  a.on {
+                        color: #000;
+                        border-bottom: 2px solid #000;
+                  }
 
-                        cursor: pointer;
+                  html.no-touch &:hover {
+                        
+                        a {
+                              color: #000;
+                        }
+                  }
+
+                  &.dropdown-container {
+                        display: flex;
+                        flex-direction: column;
+
+                        position: relative;
+                        /* overflow: hidden; */
 
                         .dropdown {
-                              max-height: 100vh;
+                              
+                              display: flex;
+                              flex-direction: column;
+                              position: absolute;
+                              top: 6vh;
+                              background-color: rgba(233, 233, 233, 0.8);
+                              padding: 0;
+                              max-height: 0;
+                              overflow: hidden;
 
-                              a {
-                                    text-decoration: none;
-                                    color: #555;
-                              }
+                              transition: .4s;
+                        }
 
-                              a:hover {
-                                    color: #000;
+                        &:hover {
+
+                              cursor: pointer;
+
+                              .dropdown {
+                                    max-height: 100vh;
+
+                                    a {
+                                          text-decoration: none;
+                                          color: #555;
+                                    }
+
+                                    a:hover {
+                                          color: #000;
+                                    }
                               }
                         }
                   }
@@ -227,29 +234,37 @@ const Ul = styled.ul`
 
             &.active {
                   max-height: 100vh;
-                  padding: 5vh;
                   background-color: rgba(233, 233, 233, 33);
-
-                  a, span {
-                        font-size: 1.4rem;
-                  }
             }
 
-            li {
+            .cnp {
 
-                  &.dropdown-container {
+                  flex-direction: column;
+                  align-items: flex-start;
+                  padding: 5vh;
 
-                        .dropdown {
-                              position: relative;
-                              max-height: 0;
-                              top: 0;
-                              margin-left: 10%;
+                  li {
+
+
+                        a, span {
+                              font-size: 1.2rem;
+                              font-weight: bold;
                         }
 
-                        &:active, &:hover {
+                        &.dropdown-container {
 
                               .dropdown {
-                                    max-height: 100vh;
+                                    position: relative;
+                                    max-height: 0;
+                                    top: 0;
+                                    margin-left: 10%;
+                              }
+
+                              &:active, &:hover {
+
+                                    .dropdown {
+                                          max-height: 100vh;
+                                    }
                               }
                         }
                   }

@@ -39,7 +39,7 @@ const Content = styled.nav`
       left: 0;
       position: fixed;
       z-index: 4;
-      background-color: rgba(233, 233, 233, 0.5);
+      background-color: rgba(233, 233, 233, 1);
 
       #logo {
             height: 6vh;
@@ -53,10 +53,10 @@ const Content = styled.nav`
       @media screen and (max-width: 840px) {
 
             /* overwrite the .wrap global */
-            padding: 2vh 10% !important;
+            padding: 1vh 10% !important;
             
             #logo {
-                  height: 6vh;
+                  height: 5vh;
             }
 
             #expand {
@@ -149,7 +149,7 @@ const Ul = styled.ul`
                   padding: 2vh 2vw;
                   text-decoration: none;
                   font-size: 0.9rem;
-                  font-weight: bold;
+                  /* font-weight: bold; */
                   transition: .4s;
             }
 
@@ -213,9 +213,9 @@ const Ul = styled.ul`
             flex-direction: column;
             align-items: flex-start;
 
-            height: 90vh;
+            height: 93vh;
             width: 100%;
-            top: 10vh;
+            top: 7vh;
             left: 0;
             max-height: 0;
 
@@ -228,7 +228,11 @@ const Ul = styled.ul`
             &.active {
                   max-height: 100vh;
                   padding: 5vh;
-                  background-color: rgba(221, 221, 221, 0.6);
+                  background-color: rgba(233, 233, 233, 33);
+
+                  a, span {
+                        font-size: 1.4rem;
+                  }
             }
 
             li {

@@ -26,7 +26,7 @@ const Layout = props => {
 
       @import url('https://fonts.googleapis.com/css2?family=Muli:wght@500;600;800&family=Roboto&display=swap');
             :root {
-                  font-size: 16px;
+                  font-size: 18px;
             }
 
             * {

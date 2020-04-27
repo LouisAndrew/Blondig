@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
+import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 
 import Button from '../Button'
 
@@ -20,9 +21,10 @@ const Hero = ({ data: { node } }, className) => {
                                                 media {
                                                       image {
                                                             asset {
-                                                                  fluid(maxWidth: 2000) {
+                                                                  fluid(maxWidth: 4000) {
                                                                         ...GatsbySanityImageFluid
                                                                   }
+                                                                  url
                                                             }
                                                       }
                                                 }
@@ -53,21 +55,25 @@ const Hero = ({ data: { node } }, className) => {
             }
       `)
 
+      // maxWidth: 2000, quality: 100
+
+      const alternative = data.desktopImage.edges[0].node.content[0].items[0].media[0].image.asset.url
+
       const fluid = data.desktopImage.edges[0].node.content[0].items[0].media[0].image.asset.fluid
       const fluidMobile = data.mobileImage.edges[0].node.content[1].items[0].media[0].image.asset.fluid
 
       const sources = [
-            fluid, {
+            fluid,
+            {
                   ...fluidMobile,
                   media: '(max-width: 464px)'
             }
       ]
 
-      console.log(sources)
 
       return (
-            <Container>
-                  <Img  className='img' fluid={sources} />
+            <Container img={alternative}>
+                  <Img  className='img' fixed={sources} />
                   <Content className='wrap'>
                         <div>
                               <Button text='Shop Now!' color='#fff' bColor='redLight' />

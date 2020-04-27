@@ -4,6 +4,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import checkTouch from '../helper/checkTouch'
 import Nav from './Nav'
 import Foot from './Foot'
+import useGoogleFonts from '../../hooks/useGoogleFonts'
 
 const Layout = props => {
 
@@ -48,13 +49,14 @@ const Layout = props => {
             }
 
             h1, h2, h3, h4, h5, h6 {
-                  font-family: 'Muli', sans-serif;
-                  font-weight: 600;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 700;
             }
 
             p, button, a, span {
                   font-size: 1rem;
-                  font-family: 'Roboto', sans-serif;
+                  font-family: 'Muli', sans-serif;
+                  font-weight: 500;
             }
 
             h5 {
@@ -99,8 +101,10 @@ const Layout = props => {
             :root {
                   font-size: 24px;
             }
-}
+      }
       `
+
+      useGoogleFonts()
       
       useEffect(() => {
             checkTouch()

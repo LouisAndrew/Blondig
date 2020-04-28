@@ -122,7 +122,7 @@ const Links = () => {
                         <li className='dropdown-container'>
                               <span>Harga <FontAwesomeIcon icon={faCaretDown} /></span> 
                               <div className='dropdown'>
-                                    <Link to='/'>Cek Harga Kaosmu!</Link>
+                                    <Link id='/pricing' to='/pricing'>Cek Harga Kaosmu!</Link>
                                     <Link to='/'>Pricelist DTG</Link>
                                     <Link to='/'>Pricelist Polyfek</Link>
                                     <Link to='/'>Pricelist Printable</Link>

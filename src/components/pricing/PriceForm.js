@@ -22,6 +22,8 @@ const PriceForm = props => {
     const [ jenisLengan, setJenisLengan ] = useState('')
     const [ sizeGambar, setSizeGambar ] = useState('')
 
+    const values = [ 'LENGAN_PANJANG', 'LENGAN_PENDEK', 'RAGLAN' ]
+
     //filter the null objects from props (useFilteredData hooks)
     const filterNull = obj => {
 
@@ -155,8 +157,14 @@ const PriceForm = props => {
 
     return (
         <Form>
+            <SelectBox onChange={lenganChange}>
+                <option value='def'>JENIS LENGAN</option>
+                {
+                    values.map(val => <option value={val}>{formatString(val)} </option>)
+                }
+            </SelectBox>
             <SelectBox onChange={changeBahan}>
-                <option value='def'>JENIS BAHAN</option>
+                <option value='def'>JENIS SABLON</option>
                 {
                     jenisBahan.map(bh => <option value={bh}>{bh} </option>)
                 }
@@ -164,12 +172,6 @@ const PriceForm = props => {
             {
                 JSON.stringify(bigFocus) !== JSON.stringify({ }) && bigFocus ? 
                 <>
-                    <SelectBox onChange={lenganChange}>
-                        <option value='def'>JENIS LENGAN</option>
-                        {
-                            Object.keys(bigFocus).map(bg => <option value={bg}>{formatString(bg)} </option>)
-                        }
-                    </SelectBox>
                     <SelectBox onChange={kaosChange}>
                         <option value='def'>JENIS KAOS</option>
                         {
@@ -178,6 +180,7 @@ const PriceForm = props => {
                     </SelectBox>
                     {
                         addition && <SelectBox onChange={sizeChange}>
+                                        <option value='def'>UKURAN SABLON </option>
                                         {
                                             addition.map(data => <option val={data}>{data} </option>)
                                         }

@@ -11,9 +11,13 @@ const PriceForm = props => {
     }
 
     const [ inFocus, setInFocus ] = useState({ })
+    const [ sizeFocus, setSizeFocus ] = useState([ ])
     const [ bigFocus, setBigFocus ] = useState({ })
     const [ bigFocusString, setBigFocusString ] = useState('')
+    const [ price, setPrice ] = useState(0)
+    const [ priceColor, setPriceColor ] = useState(0)
 
+    const [ size, setSize ] = useState('')
     const [ jenisKaos, setJenisKaos ] = useState('')
     const [ jenisLengan, setJenisLengan ] = useState('')
     const [ sizeGambar, setSizeGambar ] = useState('')
@@ -29,6 +33,28 @@ const PriceForm = props => {
         
         const split = str.split('_')
         return split.join(' ')
+    }
+
+    //filter harga sama zg size beda beda !
+    const filterBySize = size => {
+
+        if (sizeFocus) {
+
+            //get tee object by original size provided..
+            const teeObject = sizeFocus.filter(sz => sz.size === size)[0]
+            const price = teeObject.price
+            const priceColor = teeObject.priceColor
+
+            const sizes =  sizeFocus
+                            .filter(szObject => szObject.price === price)
+                            .map(filtered => filtered.size)
+            
+            return {
+                price,
+                priceColor,
+                sizes
+            }
+        }
     }
 
     //find jenisKaos inside the bigFocus => inside jenisLengan => dependant on bF and jL
@@ -50,7 +76,9 @@ const PriceForm = props => {
                 filtered = filtered.filter(variant => variant.pictureSize[0] === sizeGambar)
             }
 
-            console.log(filtered)
+            if (JSON.stringify(sizeFocus) !== JSON.stringify(filtered)) {
+                setSizeFocus(filtered)
+            }
         }
     }
 
@@ -86,6 +114,26 @@ const PriceForm = props => {
         setSizeGambar(e.target.value)
     }
 
+    const checkSize = e => {
+        
+        const el = e.target
+
+        const { sizes, price, priceColor } = filterBySize(el.name)
+        const checkboxes = document.querySelectorAll('.checkbox')
+
+        if ( el.checked ) {
+
+            checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = true: cbs.checked = false )
+            setPrice(price)
+            setPriceColor(priceColor)
+        } else {
+
+            checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = false: cbs.checked = false )
+            setPrice(0)
+            setPriceColor(0)
+        }
+    }
+
     //queried by the select menus..
     const query = {
         jenisKaos,
@@ -102,6 +150,8 @@ const PriceForm = props => {
 
         addition = bigFocusString === 'DTG' ? [ 'A3', 'A4', 'A5', 'A6' ] : [ '10x10cm', '10x30cm', '20x30xm', '30x30cm', '40x30cm' ]
     }
+
+    console.log(sizeFocus)
 
     return (
         <Form>
@@ -133,6 +183,19 @@ const PriceForm = props => {
                                         }
                                     </SelectBox>
                     }
+                    {
+                        sizeFocus[0] && <> 
+                                            {
+                                                sizeFocus.map(x => <Label htmlFor={x.size}>{x.size} <CheckBox className='checkbox' name={x.size} onChange={checkSize} /></Label>)
+                                            } 
+                                        </>
+                    }
+                    {
+                        price > 0 && <h1>Harga Baju Polos: {price} </h1>
+                    }
+                    {
+                        priceColor > 0 ? <h1>Harga Baju Warna {priceColor} </h1> : <h2>Insert ...</h2>
+                    }
                 </> : <></>
             }
         </Form>
@@ -140,6 +203,16 @@ const PriceForm = props => {
 }
 
 export default PriceForm
+
+const Label = styled.label`
+
+`
+
+const CheckBox = styled.input.attrs(props => ({
+    type: 'checkbox'
+}))`
+
+`
 
 const SelectBox = styled.select`
   

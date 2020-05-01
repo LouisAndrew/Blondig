@@ -29,6 +29,11 @@ export default Pricing
 
 const Content = styled.section`
     display: flex;
+
+    @media screen and ( max-width: 464px ) {
+        
+        flex-direction: column;
+    }
 `
 
 const Container = styled.div`

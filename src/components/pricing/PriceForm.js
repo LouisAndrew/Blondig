@@ -236,11 +236,11 @@ const PriceForm = props => {
                     }
                     {
                         ( price > 0 && priceColor > 0 ) ? 
-                            <>
-                                <h4>Harga Baju Polos: {price}</h4>
-                                <h4>Harga Baju Warna: {priceColor}</h4>
-                            </> :
-                            !sizeFocus ? <p>Product is not available</p> : <p>Form belum lengkap</p>
+                            <div className='pricing'>
+                                <h3>Harga Baju Polos:  Rp.{price},-</h3>
+                                <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
+                            </div> :
+                            !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
                     }
                 </>
             }
@@ -254,7 +254,7 @@ const SizeLabel = styled.label`
 
     width: 5vh;
     height: 5vh;
-    margin: 2vh 1vh 0 0;
+    margin: 2vh 1vh 3vh 0;
 
     font-family: 'Muli', sans-serif;
     transition: .4s;
@@ -293,10 +293,27 @@ const Form = styled.form`
 
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
 
     .size-input {
 
         display: flex;
+    }
+
+    .pricing {
+
+        h3 {
+
+            font-weight: normal;
+        }
+    }
+
+    .err {
+        color: red;
+    }
+
+    @media screen and ( max-width: 464px ) {
+
+        width: 100%;
+        align-items: center;
     }
 `

@@ -33,7 +33,7 @@ const CheckBox = ({ data, onChange, defaultString, id }) => {
     return (
         <Container>
             <div onClick={defaultClick} id={`sbox-${id}`} className='default'>
-                <span id={`${id}-selected`}>{defaultString}  </span>
+                <span id={`${id}-selected`}>{defaultString} </span>
                 <FontAwesomeIcon className='icon' icon={faChevronDown} />
             </div>
             <Options id={`options-${id}`}>
@@ -92,6 +92,8 @@ const Options = styled.div`
 
 const Container = styled.div`
     
+    margin: 1vh 0;
+
     .default {
 
         padding: 1vh;
@@ -107,12 +109,12 @@ const Container = styled.div`
 
         .icon {
 
-            transform: scale(.7) translateY(3px);
+            transform: scale(.7) translateX(5px);
             transition: .5s;
 
             &.active {
 
-                transform: rotate(180deg) scale(.7) translateY(-3px);
+                transform: rotate(180deg) scale(.7) translateX(-5px);
             }
         }
     }

@@ -14,6 +14,7 @@ import { reformatOptions } from '../../helper/formatter'
 const CheckBox = ({ data, onChange, defaultString, id }) => {
 
     const toggleClass = () => {
+
         document.getElementById(`options-${id}`).classList.toggle('active')
         document.querySelector(`#sbox-${id} .icon`).classList.toggle('active')
     }
@@ -41,7 +42,7 @@ const CheckBox = ({ data, onChange, defaultString, id }) => {
                     data.map(dt => (
                         <>
                             <Radio onClick={radioClick} name={id} id={dt} value={dt} />
-                            <label for={dt}>{dt}</label>
+                            <label  for={dt}>{dt}</label>
                         </>
                     ))
                 }
@@ -68,8 +69,13 @@ const Options = styled.div`
     position: absolute;
     z-index: 2;
 
-    transition: .5s;
-    background-color: #000;
+    transition: .2s;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+
+    &.hover {
+        max-height: 5vh;
+    }
 
     &.active {
         max-height: 100vh;
@@ -79,13 +85,15 @@ const Options = styled.div`
         padding: 1vh;
 
         transition: .2s;
-        color: #fff;
+        /* color: #fff; */
         font-family: 'Muli', sans-serif;
 
         &:hover {
 
             cursor: pointer;
-            border-left: 3px solid #fff;
+            /* border-left: 5px solid #000; */
+            color: #fff;
+            background-color: #000;
         }
     }
 `
@@ -110,7 +118,7 @@ const Container = styled.div`
         .icon {
 
             transform: scale(.7) translateX(5px);
-            transition: .5s;
+            transition: .2s;
 
             &.active {
 

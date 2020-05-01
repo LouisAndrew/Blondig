@@ -71,14 +71,29 @@ const PriceForm = props => {
         const { bigFocus, jenisKaos, jenisLengan } = query
 
         if ( bigFocus[jenisLengan] ) {
+
+            //find if the lengan vatiant exists within big focus.
+
             let filtered = bigFocus[jenisLengan].filter(variant => variant.jenisKaos === jenisKaos)
 
+            //if bigFocus is DTG or Polyflek..
             if ( bigFocusString ) {
                 filtered = filtered.filter(variant => variant.pictureSize[0] === sizeGambar)
             }
 
+            //if  the size focus and filtered isn't the same object
             if (JSON.stringify(sizeFocus) !== JSON.stringify(filtered)) {
                 setSizeFocus(filtered)
+            } else {
+                console.log(filtered)
+                if (filtered.length < 1) {
+                    //if filtered return empty array => no product available
+                    if (price !== 0 & priceColor !== 0) {
+                        setPrice(0)
+                        setPriceColor(0)
+                        setSizeFocus(false)
+                    }
+                }
             }
         } else {
             setSizeFocus(false)
@@ -140,7 +155,6 @@ const PriceForm = props => {
             
             //filter the price by size name
             const { price, priceColor } = filterBySize(e.target.value)
-            console.log(e.target.checked)
 
             //if size is checked => change price with the price provided from filter
             if (e.target.checked) {
@@ -178,12 +192,14 @@ const PriceForm = props => {
                 defaultString='Jenis Lengan' 
                 id='lengan' 
                 />
-            <CheckBox 
-                onChange={changeBahan} 
-                data={jenisBahan} 
-                defaultString='Jenis Bahan' 
-                id='bahan' 
-                />
+            {
+                jenisLengan && <CheckBox 
+                                    onChange={changeBahan} 
+                                    data={jenisBahan} 
+                                    defaultString='Jenis Bahan' 
+                                    id='bahan' 
+                                    />
+            }
             {   
                 //pertama check big focus really exist ga
                 ( JSON.stringify(bigFocus) !== JSON.stringify({  }) && bigFocus )
@@ -236,8 +252,8 @@ export default PriceForm
 
 const SizeLabel = styled.label`
 
-    width: 7vh;
-    height: 7vh;
+    width: 5vh;
+    height: 5vh;
     margin: 2vh 1vh 0 0;
 
     font-family: 'Muli', sans-serif;

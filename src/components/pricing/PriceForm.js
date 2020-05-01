@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import CheckBox from './CheckBox'
+import { formatOptions } from '../../helper/formatter'
 
 const PriceForm = props => {
 
@@ -12,12 +14,12 @@ const PriceForm = props => {
 
     const [ inFocus, setInFocus ] = useState({ })
     const [ sizeFocus, setSizeFocus ] = useState([ ])
-    const [ bigFocus, setBigFocus ] = useState({ })
+    const [ bigFocus, setBigFocus ] = useState(false)
     const [ bigFocusString, setBigFocusString ] = useState('')
     const [ price, setPrice ] = useState(0)
     const [ priceColor, setPriceColor ] = useState(0)
 
-    const [ size, setSize ] = useState('')
+    // const [ size, setSize ] = useState('')
     const [ jenisKaos, setJenisKaos ] = useState('')
     const [ jenisLengan, setJenisLengan ] = useState('')
     const [ sizeGambar, setSizeGambar ] = useState('')
@@ -30,12 +32,7 @@ const PriceForm = props => {
         return Object.keys(obj).filter(x => obj[x] !== null && x !== 'length')
     }
 
-    //format string => e.g LENGAN_PANJANG => LENGAN PANJANG
-    const formatString = str => {
-        
-        const split = str.split('_')
-        return split.join(' ')
-    }
+
 
     //filter harga sama zg size beda beda !
     const filterBySize = size => {
@@ -54,7 +51,7 @@ const PriceForm = props => {
             return {
                 price,
                 priceColor,
-                sizes
+                // sizes
             }
         }
     }
@@ -62,9 +59,11 @@ const PriceForm = props => {
     //find jenisKaos inside the bigFocus => inside jenisLengan => dependant on bF and jL
     const findJenisKaos = bigFocus => {
 
-        const total = bigFocus[jenisLengan].map(variant => variant.jenisKaos)
-
-        return total.filter((item, index) => total.indexOf(item) === index)
+        if (bigFocus[jenisLengan]) {
+            
+            const total = bigFocus[jenisLengan].map(variant => variant.jenisKaos)
+            return total.filter((item, index) => total.indexOf(item) === index)
+        } 
     }
 
     const searchBasedOnQuery = query => {
@@ -81,16 +80,17 @@ const PriceForm = props => {
             if (JSON.stringify(sizeFocus) !== JSON.stringify(filtered)) {
                 setSizeFocus(filtered)
             }
+        } else {
+            setSizeFocus(false)
         }
     }
 
-    const changeBahan = e => {
+    const changeBahan = val => {
 
-        if (e !== 'def') {
-            setBigFocus(props[e.target.value])
-            
-            if ( e.target.value === 'DTG' || e.target.value === 'Polyflek' ) {
-                setBigFocusString(e.target.value)
+        if (val !== 'def') {
+            setBigFocus(props[val])
+            if ( val === 'DTG' || val === 'Polyflek' ) {
+                setBigFocusString(val)
             } else {
                 setBigFocusString('')
             }
@@ -101,39 +101,56 @@ const PriceForm = props => {
         }
     }
 
-    const lenganChange = e => {
+    const lenganChange = val => {
 
-        e.target.value !== 'def' ? setJenisLengan(e.target.value) : setJenisLengan('')
+        val !== 'def' ? setJenisLengan(val) : setJenisLengan('')
     }
 
-    const kaosChange = e => {
+    const kaosChange = val => {
 
-        e.target.value !== 'def' ? setJenisKaos(e.target.value) : setJenisKaos('')
+        val !== 'def' ? setJenisKaos(val) : setJenisKaos('')
     }
 
-    const sizeChange = e => {
+    const sizeGambarChange = val => {
 
-        setSizeGambar(e.target.value)
+        setSizeGambar(val)
     }
 
-    const checkSize = e => {
+    // const checkSize = e => {
         
-        const el = e.target
+    //     const el = e.target
 
-        const { sizes, price, priceColor } = filterBySize(el.name)
-        const checkboxes = document.querySelectorAll('.checkbox')
+    //     const { sizes, price, priceColor } = filterBySize(el.name)
+    //     const checkboxes = document.querySelectorAll('.checkbox')
 
-        if ( el.checked ) {
+    //     if ( el.checked ) {
 
-            checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = true: cbs.checked = false )
-            setPrice(price)
-            setPriceColor(priceColor)
-        } else {
+    //         checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = true: cbs.checked = false )
+    //         setPrice(price)
+    //         setPriceColor(priceColor)
+    //     } else {
 
-            checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = false: cbs.checked = false )
-            setPrice(0)
-            setPriceColor(0)
-        }
+    //         checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = false: cbs.checked = false )
+    //         setPrice(0)
+    //         setPriceColor(0)
+    //     }
+    // }
+
+        const checkSize = e => {
+            
+            //filter the price by size name
+            const { price, priceColor } = filterBySize(e.target.value)
+            console.log(e.target.checked)
+
+            //if size is checked => change price with the price provided from filter
+            if (e.target.checked) {
+                setPrice(price)
+                setPriceColor(priceColor)
+            } else {
+                //if not, set price to 0
+                setPrice(0)
+                setPriceColor(0)
+            }
     }
 
     //queried by the select menus..
@@ -153,53 +170,63 @@ const PriceForm = props => {
         addition = bigFocusString === 'DTG' ? [ 'A3', 'A4', 'A5', 'A6' ] : [ '10x10cm', '10x30cm', '20x30xm', '30x30cm', '40x30cm' ]
     }
 
-    console.log(sizeFocus)
-
     return (
         <Form>
-            <SelectBox onChange={lenganChange}>
-                <option value='def'>JENIS LENGAN</option>
-                {
-                    values.map(val => <option value={val}>{formatString(val)} </option>)
-                }
-            </SelectBox>
-            <SelectBox onChange={changeBahan}>
-                <option value='def'>JENIS SABLON</option>
-                {
-                    jenisBahan.map(bh => <option value={bh}>{bh} </option>)
-                }
-            </SelectBox>
-            {
-                JSON.stringify(bigFocus) !== JSON.stringify({ }) && bigFocus ? 
+            <CheckBox 
+                onChange={lenganChange} 
+                data={values.map(vl => formatOptions(vl))} 
+                defaultString='Jenis Lengan' 
+                id='lengan' 
+                />
+            <CheckBox 
+                onChange={changeBahan} 
+                data={jenisBahan} 
+                defaultString='Jenis Bahan' 
+                id='bahan' 
+                />
+            {   
+                //pertama check big focus really exist ga
+                ( JSON.stringify(bigFocus) !== JSON.stringify({  }) && bigFocus )
+
+                &&
+
                 <>
-                    <SelectBox onChange={kaosChange}>
-                        <option value='def'>JENIS KAOS</option>
-                        {
-                            bigFocus && jenisLengan ? findJenisKaos(bigFocus).map(item => <option value={item}>{formatString(item)} </option>) : <></>
-                        }
-                    </SelectBox>
                     {
-                        addition && <SelectBox onChange={sizeChange}>
-                                        <option value='def'>UKURAN SABLON </option>
-                                        {
-                                            addition.map(data => <option val={data}>{data} </option>)
-                                        }
-                                    </SelectBox>
+                        //check if the jenisLengan variant rlly exist within bigFocus
+                        bigFocus[jenisLengan] && <CheckBox 
+                                                    onChange={kaosChange} 
+                                                    data={findJenisKaos(bigFocus).map(dt => formatOptions(dt))} 
+                                                    defaultString='Jenis Kaos' 
+                                                    id='kaos' 
+                                                    />
                     }
                     {
-                        sizeFocus[0] && <> 
+                        addition && <CheckBox 
+                                        onChange={sizeGambarChange}
+                                        data={addition}
+                                        defaultString='Size Gambar'
+                                        id='size-gambar'
+                                        />
+                    }
+                    {
+                        sizeFocus[0] && <div className='size-input'> 
                                             {
-                                                sizeFocus.map(x => <Label htmlFor={x.size}>{x.size} <CheckBox className='checkbox' name={x.size} onChange={checkSize} /></Label>)
+                                                sizeFocus.map(x => <>
+                                                                        <SizeRadio className='checkbox' value={x.size} id={x.size} name='sizes' onChange={checkSize} />
+                                                                        <SizeLabel htmlFor={x.size}>{x.size}</SizeLabel>
+                                                                   </>)
                                             } 
-                                        </>
+                                        </div>
                     }
                     {
-                        price > 0 && <h1>Harga Baju Polos: {price} </h1>
+                        ( price > 0 && priceColor > 0 ) ? 
+                            <>
+                                <h4>Harga Baju Polos: {price}</h4>
+                                <h4>Harga Baju Warna: {priceColor}</h4>
+                            </> :
+                            !sizeFocus ? <p>Product is not available</p> : <p>Form belum lengkap</p>
                     }
-                    {
-                        priceColor > 0 ? <h1>Harga Baju Warna {priceColor} </h1> : <h2>Insert ...</h2>
-                    }
-                </> : <></>
+                </>
             }
         </Form>
     )
@@ -207,20 +234,53 @@ const PriceForm = props => {
 
 export default PriceForm
 
-const Label = styled.label`
+const SizeLabel = styled.label`
 
+    width: 7vh;
+    height: 7vh;
+    margin: 2vh 1vh 0 0;
+
+    font-family: 'Muli', sans-serif;
+    transition: .4s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, .2);
+    }
 `
 
-const CheckBox = styled.input.attrs(props => ({
-    type: 'checkbox'
+const SizeRadio = styled.input.attrs(props => ({
+    type: 'radio'
 }))`
+    display: none;
 
+    &:checked + label {
+        
+        background-color: #000;
+        color: #fff;
+    }
 `
 
-const SelectBox = styled.select`
+// const SelectBox = styled.select`
   
-`
+// ` 
 
 const Form = styled.form`
-  
+    
+    width: 50%;
+    padding: 0 5%; 
+
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+
+    .size-input {
+
+        display: flex;
+    }
 `

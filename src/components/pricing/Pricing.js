@@ -18,14 +18,19 @@ const Pricing = ({ DTG, Printable, Polyflex }) => {
 
     return (
         <Container>
-            <PriceForm {...data} />
+            <Content className='wrap'>
+                <PriceForm {...data} />
+            </Content>
         </Container>
     )
 }
 
 export default Pricing
 
-const Container = styled.div`
+const Content = styled.section`
+    display: flex;
+`
 
+const Container = styled.div`
     padding: 10vh 0;
 `

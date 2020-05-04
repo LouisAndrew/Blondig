@@ -7,10 +7,7 @@ export default {
                   name: 'jenisBahan',
                   title: 'Jenis Bahan',
                   description: 'DTG, Polyflex dll??? => bisa tambah jenis lhoo entar!',
-                  type: 'string',
-                  options: {
-                        list: [ 'DTG', 'Polyflek', 'Printable' ]
-                  }
+                  type: 'string'
             },
             {
                   name: 'jenisKaos',

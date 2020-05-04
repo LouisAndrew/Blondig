@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
+import { useInView } from 'react-intersection-observer'
 
 import Button from '../Button'
 
 const Hero = ({ data: { node } }, className) => {
-
       //fluid isn't really great here?
 
       const data = useStaticQuery(graphql`
@@ -70,10 +70,25 @@ const Hero = ({ data: { node } }, className) => {
             }
       ]
 
+      const [ ref, inView, entry ] = useInView({ threshold: 0 })
+      const nav = document.getElementById('nav')
+      const transparentClassName = 'on-hero'
+
+      if ( nav ) {
+
+            if ( inView && !nav.classList.contains(transparentClassName) ) {
+
+                  nav.classList.add(transparentClassName)
+            } else {
+                  
+                  nav.classList.contains(transparentClassName) && nav.classList.remove(transparentClassName)
+            }
+      }
+
 
       return (
-            <Container img={alternative}>
-                  <Img  className='img' fixed={sources} />
+            <Container ref={ref} id='hero' img={alternative}>
+                  <Img className='img' fixed={sources} />
                   <Content className='wrap'>
                         <div>
                               <Button text='Shop Now!' color='#fff' bColor='redLight' />
@@ -109,7 +124,7 @@ const Container = styled.div`
       height: 100vh;
       width: 100%;
       ${({ theme }) => theme.center()};
-      margin-top: 6vh;
+      /* margin-top: 6vh; */
 
       background-image: url(${props => props.img});
       background-size: cover;

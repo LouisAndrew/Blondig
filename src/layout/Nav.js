@@ -16,7 +16,7 @@ const Nav = () => {
 
       return (
             <Container>
-                  <Content className='wrap'>
+                  <Content id='nav' className='wrap'>
                         <Logo id='logo' />
                         <Links id='links' />
                         <Expand onClick={click} id='expand' />
@@ -39,7 +39,9 @@ const Content = styled.nav`
       left: 0;
       position: fixed;
       z-index: 4;
-      background-color: rgba(233, 233, 233, 1);
+      background-color: #fff;
+      transition: .4s;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
 
       #logo {
             height: 6vh;
@@ -48,6 +50,12 @@ const Content = styled.nav`
 
       #expand {
             display: none;
+      }
+
+      &.on-hero {
+
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: none;
       }
 
       @media screen and (max-width: 840px) {

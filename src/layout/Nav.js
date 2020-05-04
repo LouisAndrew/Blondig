@@ -33,6 +33,7 @@ const Content = styled.nav`
       /* padding: 1vh 10% !important; */
 
       display: flex;
+      flex-direction: row-reverse;
       align-items: center;
       justify-content: space-between;
 

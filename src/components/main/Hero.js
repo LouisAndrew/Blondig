@@ -70,9 +70,9 @@ const Hero = ({ data: { node } }, className) => {
             }
       ]
 
+      const [ ref, inView, entry ] = useInView({ threshold: 0 })
       const navTransition = () => {
 
-            const [ ref, inView, entry ] = useInView({ threshold: 0 })
             const nav = document.getElementById('nav')
             const transparentClassName = 'on-hero'
 

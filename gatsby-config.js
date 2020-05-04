@@ -19,7 +19,9 @@ module.exports = {
         // If the Sanity GraphQL API was deployed using `--tag <name>`,
         // use `graphqlTag` to specify the tag name. Defaults to `default`.
         graphqlTag: 'default',
-        watchMode: true
+        watchMode: true,
+        overlayDrafts: true,
+        token: 'sk3p3XfWQk236KX4KxXlwcaE7f2fjMd4l8ytKEIUMU0Ew4AgptqkRlBFf3V04Sv4VOUMaFf2dVM8NtX4OiClFZMubDyIf3NFlmP0jwRcHAIU5CvDN183FFaF4cvrQmS1AppfpKxPhpEbb7aUGwIXmRYbOakC0yaLXULSWtPYDS8291GKas24'
       }
     },
     {

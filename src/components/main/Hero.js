@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -70,20 +70,28 @@ const Hero = ({ data: { node } }, className) => {
             }
       ]
 
-      const [ ref, inView, entry ] = useInView({ threshold: 0 })
-      const nav = document.getElementById('nav')
-      const transparentClassName = 'on-hero'
+      const navTransition = () => {
 
-      if ( nav ) {
+            const [ ref, inView, entry ] = useInView({ threshold: 0 })
+            const nav = document.getElementById('nav')
+            const transparentClassName = 'on-hero'
 
-            if ( inView && !nav.classList.contains(transparentClassName) ) {
+            if ( nav ) {
 
-                  nav.classList.add(transparentClassName)
-            } else {
-                  
-                  nav.classList.contains(transparentClassName) && nav.classList.remove(transparentClassName)
+                  if ( inView && !nav.classList.contains(transparentClassName) ) {
+
+                        nav.classList.add(transparentClassName)
+                  } else {
+                        
+                        nav.classList.contains(transparentClassName) && nav.classList.remove(transparentClassName)
+                  }
             }
       }
+
+      useEffect(() => {
+
+            navTransition()
+      })
 
 
       return (

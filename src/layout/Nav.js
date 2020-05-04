@@ -11,7 +11,8 @@ import Logo from '../../assets/logo.svg'
 const Nav = () => {
 
       const click = () => {
-            document.getElementById('ul').classList.toggle('active')
+            const ul = document.getElementById('ul')
+            ul && ul.classList.toggle('active')
       }
 
       return (
@@ -106,10 +107,10 @@ const Links = () => {
       ]
 
       const location = useLocation()
-      // const locId = location.pathname
 
       const addUline = locId => {
-            document.getElementById(locId).classList.add('on')
+            const docLink = document.getElementById(locId)
+            docLink && docLink.classList.toggle('on')
       }
 
       useEffect(() => {

@@ -33,7 +33,8 @@ const Content = styled.nav`
       /* padding: 1vh 10% !important; */
 
       display: flex;
-      flex-direction: row-reverse;
+      /* kiri apa kanan? */
+      /* flex-direction: row-reverse; */
       align-items: center;
       justify-content: space-between;
 
@@ -165,7 +166,7 @@ const Ul = styled.ul`
                         padding: 2vh 2vw;
                         text-decoration: none;
                         font-size: 0.9rem;
-                        /* font-weight: bold; */
+                        font-weight: bold;
                         transition: .4s;
                   }
 

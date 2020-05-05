@@ -13,6 +13,9 @@ const Nav = () => {
       const click = () => {
             const ul = document.getElementById('ul')
             ul && ul.classList.toggle('active')
+
+            const nav = document.querySelector('nav')
+            nav.classList.contains('on-hero') && nav.classList.toggle('on-hero') 
       }
 
       return (
@@ -245,7 +248,7 @@ const Ul = styled.ul`
 
             &.active {
                   max-height: 100vh;
-                  background-color: rgba(233, 233, 233, 33);
+                  background-color: #fff;
             }
 
             .cnp {

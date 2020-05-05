@@ -7,18 +7,21 @@ import Hero from "../components/main/Hero"
 import Why from "../components/main/Why"
 import Proccess from "../components/main/Proccess"
 import { extractPositionId } from '../helper/extracts'
+import Prices from "../components/main/Prices"
 
 const IndexPage = ({ data: { allSanityHomepage: { edges } } }) => {
 
     const heroData = extractPositionId('hero', edges)
     const whyData = extractPositionId('why-us', edges)
     const proccessData = extractPositionId('proccess', edges)
+    const pricesData = extractPositionId('prices', edges)
 
     return (
         <Layout>
             <Hero data={heroData} />
             <Why data={whyData} />
             <Proccess data={proccessData} />
+            <Prices data={pricesData} />
         </Layout>
     )
 }
@@ -35,8 +38,8 @@ export const query = graphql`
                         button
                         position
                         items {
-                            subheading
                             misc
+                            subheading
                             heading
                             media {
                                 image {

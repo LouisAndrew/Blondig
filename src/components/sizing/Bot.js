@@ -94,12 +94,18 @@ const Container = styled.div`
       width: 100%;
 `
 
-const Card = ({heading, subheading, color}) => (
-      <CardCont className='cnt' $color={color}>
-            <h1>{heading} </h1>
-            <p>{subheading} </p>
-      </CardCont>
-)
+const Card = ({heading, subheading, color}) => {
+
+      console.log(typeof subheading)
+      const text = subheading[1] ? <>{ subheading.map(txt => <p className='double'>{txt}</p>) }</> : <p>{subheading} </p>
+
+      return (
+            <CardCont className='cnt' $color={color}>
+                  <h1>{heading} </h1>
+                  { text }
+            </CardCont>
+      )
+}
 
 const CardCont = styled.div`
       
@@ -118,5 +124,9 @@ const CardCont = styled.div`
       p {
             text-align: center;
             padding: 10%;
+
+            &.double {
+                  padding-bottom: 2%;
+            }
       }
 `

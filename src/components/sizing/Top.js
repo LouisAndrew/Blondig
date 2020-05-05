@@ -17,7 +17,7 @@ const Top = ({ layout, sizes }) => {
                         </div>
                         <div>
                               <Img className='img' fluid={layoutData.items[0].media[0].image.asset.fluid} />
-                              <h5>{layoutData.items[0].misc} </h5> 
+                              <h5>{layoutData.items[0].subheading} </h5> 
                               <Button bColor='redLight' color='#fff' text={layoutData.button} />
                         </div>
                   </Content>

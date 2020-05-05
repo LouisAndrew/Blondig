@@ -24,7 +24,8 @@ export default {
             {
                   name: 'misc',
                   title: 'Misc',
-                  type: 'string',
+                  type: 'array',
+                  of: [{ type: 'text' }]
             }
       ]
 }

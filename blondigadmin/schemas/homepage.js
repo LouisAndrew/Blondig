@@ -8,7 +8,7 @@ export default {
                   title: 'Layout ID',
                   type: 'string',
                   options: {
-                        list: [ 'hero', 'why-us', 'proccess' ]
+                        list: [ 'hero', 'why-us', 'proccess', 'prices' ]
                   },
                   validation: Rule => Rule.required()
             },

@@ -46,11 +46,14 @@ const Content = styled.section`
             ${({ theme }) => theme.center()};
             flex-direction: column;
             width: 60%;
-            padding: 20vh 0;
+            height: 100%;
 
-            h2 {
+            /* padding here, not on container => img is absolute. */
+            padding: 5% 0;
+
+            h2 {  
+                  padding: 0 2vh 2vh;
                   text-align: center;
-                  margin-bottom: 5vh;
                   color: ${({ theme }) => theme.red};
             }
 

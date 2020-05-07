@@ -39,6 +39,8 @@ const Content = styled.div`
             display: flex;
             align-items: center;
             flex-direction: column;
+            
+            padding: 0 5%;
 
             h2 {
                   margin: 0 0 4vh;

@@ -30,10 +30,12 @@ export default Bot
 
 const Content = styled.section`
       width: 60%;
-      margin-top: -5vh;
+      margin-top: -10vh;
 
       h2 {
-            margin: 5vh 0;
+            margin: 5vh 0 8vh;
+            text-align: center;
+            font-weight: bold;
       }
 
       .top {
@@ -45,7 +47,9 @@ const Content = styled.section`
 
       .bot {
             display: flex;
-            justify-content: space-evenly
+            justify-content: space-evenly;
+            
+            margin-bottom: 10%;
       }
 
       @media screen and (max-width: 850px) {
@@ -101,7 +105,7 @@ const Card = ({heading, subheading, color}) => {
 
       return (
             <CardCont className='cnt' $color={color}>
-                  <h1>{heading} </h1>
+                  <h1>{heading}</h1>
                   { text }
             </CardCont>
       )

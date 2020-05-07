@@ -33,8 +33,6 @@ const CardContainer = styled.div`
       flex-flow: row wrap;
       justify-content: space-evenly;
 
-      padding: 10vh 0;
-      
       width: 100%;
 `
 
@@ -46,14 +44,14 @@ const Content = styled.section`
 
       h2 {
             text-align: center;
-            padding: 10vh 0 0;
-            margin-top: 10vh;
       }
 `
 
 const Container = styled.div`
       ${({ theme }) => theme.center()};
       width: 100%;
+      
+      padding: 10% 0 5%;
 `
 
 const WhyCard = ({ fluid, heading, subheading }) => (

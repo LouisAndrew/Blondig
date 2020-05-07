@@ -5,6 +5,8 @@ import { formatOptions } from '../../helper/formatter'
 
 const PriceForm = props => {
 
+    console.log(props['DTG'])
+
     const queryTemplate = {
         jenisKaos: '',
         pictureSize: '',
@@ -60,8 +62,9 @@ const PriceForm = props => {
     const findJenisKaos = bigFocus => {
 
         if (bigFocus[jenisLengan]) {
-            
+            console.log(bigFocus[jenisLengan])
             const total = bigFocus[jenisLengan].map(variant => variant.jenisKaos)
+            console.log(total)
             return total.filter((item, index) => total.indexOf(item) === index)
         } 
     }
@@ -114,6 +117,8 @@ const PriceForm = props => {
             setBigFocus(false)
             setBigFocusString('')
         }
+
+        console.log('success')
     }
 
     const lenganChange = val => {
@@ -211,7 +216,7 @@ const PriceForm = props => {
                         //check if the jenisLengan variant rlly exist within bigFocus
                         bigFocus[jenisLengan] && <CheckBox 
                                                     onChange={kaosChange} 
-                                                    data={findJenisKaos(bigFocus).map(dt => formatOptions(dt))} 
+                                                    data={findJenisKaos(bigFocus).map(dt => dt && formatOptions(dt))} 
                                                     defaultString='Jenis Kaos' 
                                                     id='kaos' 
                                                     />
@@ -252,9 +257,8 @@ export default PriceForm
 
 const SizeLabel = styled.label`
 
-    width: 5vh;
-    height: 5vh;
     margin: 2vh 1vh 3vh 0;
+    padding: 2vh;
 
     font-family: 'Muli', sans-serif;
     transition: .4s;
@@ -297,6 +301,8 @@ const Form = styled.form`
     .size-input {
 
         display: flex;
+        flex-flow: row wrap;
+        width: 100%;
     }
 
     .pricing {

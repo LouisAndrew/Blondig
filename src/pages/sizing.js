@@ -54,7 +54,7 @@ export const query = graphql`
                         }
                   }
             }
-            allSanitySize {
+            allSanitySize(sort: {fields: width}) {
                   edges {
                     node {
                       sizeName

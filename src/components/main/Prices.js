@@ -42,18 +42,28 @@ const CardContent = styled.div`
     display: flex;
     align-items: center;
     flex-flow: column wrap;
-    width: 31%;
+    width: 28%;
+    padding: 2rem;
+
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .5), -2px -1px 5px rgba(255, 255, 255, .25);
+    border-radius: 5px;
+    background-color: rgba(221, 221, 221, .2);
 
     h3 {
-
-        margin: 2rem 0;
+        text-align: center;
+        margin-bottom: 2rem;
     }
 
     p {
 
-        padding: 1rem 0;
+        margin-top: 2rem;
         text-align: center;
+        padding: 0 2rem;
     }
+
+    /* p:last-child {
+        margin-bottom: 2rem;
+    } */
 
     .img {
 
@@ -62,11 +72,17 @@ const CardContent = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media screen and ( max-width: 464px ) {
+            
+            height: 160px;
+        }
     }
 
-    @media screen and ( max-width: 850px ) {
+    @media screen and ( max-width: 1240px ) {
         
-        width: 48%;
+        width: 40%;
+        margin-bottom: 5%;
     }
 
     @media screen and ( max-width: 464px ) {
@@ -92,11 +108,11 @@ const Content = styled.section`
         width: 100%;
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         margin-top: 5vh;
 
-        @media screen and ( max-width: 850px ) {
+        @media screen and ( max-width: 1240px ) {
 
             justify-content: space-evenly;
         }
@@ -105,6 +121,7 @@ const Content = styled.section`
 
 const Container = styled.div`
     width: 100%;
+    padding: 5% 0;
 
     display: flex;
     justify-content: center;

@@ -33,9 +33,14 @@ const Content = styled.section`
       margin-top: -10vh;
 
       h2 {
-            margin: 5vh 0 8vh;
+            margin: 8vh 0 5vh;
             text-align: center;
             font-weight: bold;
+
+            @media screen and ( orientation: portrait ) {
+                  
+                  margin-bottom: 3vh;
+            }
       }
 
       .top {
@@ -74,6 +79,7 @@ const Content = styled.section`
                   .cnt {
                         width: 90% !important;
                         /* flex-direction: row; */
+                        margin-bottom: 10%;
                   }
             }
       }

@@ -43,9 +43,9 @@ const CardContent = styled.div`
     align-items: center;
     flex-flow: column wrap;
     width: 28%;
-    padding: 2rem 1rem;
+    padding: 2rem 0;
 
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5), -2px -2px 2px rgba(211, 211, 211, .25);
+    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, .5), -2px -2px 2px rgba(211, 211, 211, .25); */
     border-radius: 5px;
     /* background-color: rgba(221, 221, 221, .2); */
 
@@ -85,7 +85,7 @@ const CardContent = styled.div`
         margin-bottom: 5%;
     }
 
-    @media only screen and ( max-width: 780px ) { 
+    @media only screen and ( max-width: 840px ) { 
         
         width: 60%;
     }

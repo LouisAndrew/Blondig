@@ -43,9 +43,9 @@ const CardContent = styled.div`
     align-items: center;
     flex-flow: column wrap;
     width: 28%;
-    padding: 2rem;
+    padding: 2rem 1rem;
 
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, .5), -2px -1px 5px rgba(255, 255, 255, .25);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5), -2px -2px 2px rgba(211, 211, 211, .25);
     border-radius: 5px;
     /* background-color: rgba(221, 221, 221, .2); */
 
@@ -67,8 +67,8 @@ const CardContent = styled.div`
 
     .img {
 
-        width: 80%;
-        height: 200px;
+        width: 70%;
+        height: 190px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -85,7 +85,7 @@ const CardContent = styled.div`
         margin-bottom: 5%;
     }
 
-    @media screen and ( max-width: 780px ) { 
+    @media only screen and ( max-width: 780px ) { 
         
         width: 60%;
     }
@@ -105,6 +105,7 @@ const Content = styled.section`
 
     h2 {
         color: ${({ theme }) => theme.blue};
+        margin-bottom: 5%;
     }
 
     .items {
@@ -125,7 +126,7 @@ const Content = styled.section`
 
 const Container = styled.div`
     width: 100%;
-    padding: 5% 0;
+    padding: 0 0 5%;
 
     display: flex;
     justify-content: center;

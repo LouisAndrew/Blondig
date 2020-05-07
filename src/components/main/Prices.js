@@ -47,7 +47,7 @@ const CardContent = styled.div`
 
     box-shadow: 1px 2px 5px rgba(0, 0, 0, .5), -2px -1px 5px rgba(255, 255, 255, .25);
     border-radius: 5px;
-    background-color: rgba(221, 221, 221, .2);
+    /* background-color: rgba(221, 221, 221, .2); */
 
     h3 {
         text-align: center;
@@ -79,12 +79,16 @@ const CardContent = styled.div`
         }
     }
 
-    @media screen and ( max-width: 1240px ) {
+    @media screen and ( max-width: 1400px ) {
         
         width: 40%;
         margin-bottom: 5%;
     }
 
+    @media screen and ( max-width: 780px ) { 
+        
+        width: 60%;
+    }
     @media screen and ( max-width: 464px ) {
         
         width: 80%;

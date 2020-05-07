@@ -43,7 +43,7 @@ const CardContent = styled.div`
     align-items: center;
     flex-flow: column wrap;
     width: 28%;
-    padding: 2rem 0;
+    padding: 2% 0;
 
     /* box-shadow: 2px 2px 4px rgba(0, 0, 0, .5), -2px -2px 2px rgba(211, 211, 211, .25); */
     border-radius: 5px;
@@ -105,7 +105,7 @@ const Content = styled.section`
 
     h2 {
         color: ${({ theme }) => theme.blue};
-        margin-bottom: 5%;
+        font-size: 2.5rem;
     }
 
     .items {
@@ -126,7 +126,7 @@ const Content = styled.section`
 
 const Container = styled.div`
     width: 100%;
-    padding: 0 0 5%;
+    padding: 0 0 5vh;
 
     display: flex;
     justify-content: center;

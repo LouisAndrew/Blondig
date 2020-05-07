@@ -49,7 +49,7 @@ const Content = styled.section`
             height: 100%;
 
             /* padding here, not on container => img is absolute. */
-            padding: 5% 0;
+            padding: 5vh 0;
 
             h2 {  
                   padding: 0 2vh 2vh;

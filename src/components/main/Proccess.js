@@ -70,7 +70,7 @@ const Wrapper = styled.div`
       align-items: center;
 
       width: 30%;
-      padding: 5% 0;
+      padding: 5vh 0;
 
       .img {
 

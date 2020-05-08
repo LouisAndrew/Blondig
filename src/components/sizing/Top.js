@@ -1,12 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { useNavigate } from '@reach/router'
 
 import Button from '../Button'
 
 const Top = ({ layout, sizes }) => {
 
+      const goToPrice = useNavigate()
+
       const layoutData = layout.node.content[0]
+      const click = () => {
+
+            goToPrice('/pricing', { replace: true })
+      }
 
       return (
             <Container>
@@ -18,7 +25,7 @@ const Top = ({ layout, sizes }) => {
                         <div>
                               <Img className='img' fluid={layoutData.items[0].media[0].image.asset.fluid} />
                               <h5>{layoutData.items[0].subheading} </h5> 
-                              <Button bColor='redLight' color='#fff' text={layoutData.button} />
+                              <Button onClick={click} bColor='redLight' color='#fff' text={layoutData.button} />
                         </div>
                   </Content>
             </Container>

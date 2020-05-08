@@ -44,6 +44,10 @@ const Content = styled.section`
 
       h2 {
             text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 .5rem;
+
+            color: ${({ theme }) => theme.blue};
       }
 `
 
@@ -70,7 +74,7 @@ const Wrapper = styled.div`
       align-items: center;
 
       width: 30%;
-      padding: 5vh 0;
+      padding: 5vh 2vh;
 
       .img {
 
@@ -96,19 +100,15 @@ const Wrapper = styled.div`
 
       @media screen and (max-width: 1040px) {
             
-            .img {
-                  height: 200px;
-                  width: 200px;
-            }
-
-            .det {
-                  width: 200px;
-                  padding-right: 0;
-            }
-      }
+            width: 35%;
 
       @media screen and (max-width: 850px) {
             
+            .img {
+                  width: 200px;
+                  height: 200px;
+            }
+
             width: 45%;
       }
 

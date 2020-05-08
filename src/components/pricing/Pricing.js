@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useNavigate } from '@reach/router'
 
 import useFilteredData from '../../../hooks/useFilteredData'
 import PriceForm from './PriceForm'
+import Button from '../Button'
 
 const Pricing = ({ allSanityTee: { edges: passedData } }) => {
 
@@ -38,7 +40,12 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
 
     const [ data, setData ] = useState({ })
     const filteredData = useFilteredData(DTG, Printable, Polyflex)
-    console.log(filteredData)
+    const goToSizing = useNavigate()
+
+    const click = () => {
+
+        goToSizing('/sizing', { replace: true })
+    }
 
     useEffect(() => {
 
@@ -50,7 +57,12 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
     return (
         <Container>
             <Content className='wrap'>
-                <PriceForm {...data} />
+                <div className='item'>
+                    <PriceForm {...data} />
+                </div>
+                <div className='item'>
+                    <Button onClick={click} bColor='redLight' color='white' text='Cek sizing guide' />
+                </div>
             </Content>
         </Container>
     )
@@ -60,6 +72,11 @@ export default Pricing
 
 const Content = styled.section`
     display: flex;
+
+    .item {
+
+        width: 50%;
+    }
 
     @media screen and ( max-width: 464px ) {
         

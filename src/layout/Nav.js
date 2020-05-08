@@ -103,7 +103,7 @@ const Links = () => {
             },
             {
                   name: 'Gallery',
-                  to: 'gallery'
+                  to: '/gallery'
             },
             {
                   name: 'Hubungi Kami',

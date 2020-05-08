@@ -27,8 +27,8 @@ const Prices = ({ data: { node: { content } } }) => {
 
 const Card = ({ heading, img, subheading }) => (
     <CardContent>
-        <h3>{heading} </h3>
         <Img className='img' fluid={img} />
+        <h3>{heading} </h3>
         {
             subheading.map(item => <p>{item}</p>)
         }
@@ -51,7 +51,7 @@ const CardContent = styled.div`
 
     h3 {
         text-align: center;
-        margin-bottom: 2rem;
+        margin: 2rem 0 0;
     }
 
     p {
@@ -105,7 +105,6 @@ const Content = styled.section`
 
     h2 {
         color: ${({ theme }) => theme.blue};
-        font-size: 2.5rem;
     }
 
     .items {

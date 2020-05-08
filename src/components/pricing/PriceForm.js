@@ -5,8 +5,6 @@ import { formatOptions } from '../../helper/formatter'
 
 const PriceForm = props => {
 
-    console.log(props['DTG'])
-
     const queryTemplate = {
         jenisKaos: '',
         pictureSize: '',
@@ -62,9 +60,7 @@ const PriceForm = props => {
     const findJenisKaos = bigFocus => {
 
         if (bigFocus[jenisLengan]) {
-            console.log(bigFocus[jenisLengan])
             const total = bigFocus[jenisLengan].map(variant => variant.jenisKaos)
-            console.log(total)
             return total.filter((item, index) => total.indexOf(item) === index)
         } 
     }
@@ -86,9 +82,10 @@ const PriceForm = props => {
 
             //if  the size focus and filtered isn't the same object
             if (JSON.stringify(sizeFocus) !== JSON.stringify(filtered)) {
+
                 setSizeFocus(filtered)
             } else {
-                console.log(filtered)
+
                 if (filtered.length < 1) {
                     //if filtered return empty array => no product available
                     if (price !== 0 & priceColor !== 0) {
@@ -117,8 +114,6 @@ const PriceForm = props => {
             setBigFocus(false)
             setBigFocusString('')
         }
-
-        console.log('success')
     }
 
     const lenganChange = val => {
@@ -136,40 +131,20 @@ const PriceForm = props => {
         setSizeGambar(val)
     }
 
-    // const checkSize = e => {
-        
-    //     const el = e.target
-
-    //     const { sizes, price, priceColor } = filterBySize(el.name)
-    //     const checkboxes = document.querySelectorAll('.checkbox')
-
-    //     if ( el.checked ) {
-
-    //         checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = true: cbs.checked = false )
-    //         setPrice(price)
-    //         setPriceColor(priceColor)
-    //     } else {
-
-    //         checkboxes.forEach(cbs => sizes.some(size => size === cbs.name) ? cbs.checked = false: cbs.checked = false )
-    //         setPrice(0)
-    //         setPriceColor(0)
-    //     }
-    // }
-
-        const checkSize = e => {
+    const checkSize = e => {
             
-            //filter the price by size name
-            const { price, priceColor } = filterBySize(e.target.value)
+        //filter the price by size name
+        const { price, priceColor } = filterBySize(e.target.value)
 
-            //if size is checked => change price with the price provided from filter
-            if (e.target.checked) {
-                setPrice(price)
-                setPriceColor(priceColor)
-            } else {
-                //if not, set price to 0
-                setPrice(0)
-                setPriceColor(0)
-            }
+        //if size is checked => change price with the price provided from filter
+        if (e.target.checked) {
+            setPrice(price)
+            setPriceColor(priceColor)
+        } else {
+            //if not, set price to 0
+            setPrice(0)
+            setPriceColor(0)
+        }
     }
 
     //queried by the select menus..
@@ -292,7 +267,7 @@ const SizeRadio = styled.input.attrs(props => ({
 
 const Form = styled.form`
     
-    width: 50%;
+    width: 80%;
     padding: 0 5%; 
 
     display: flex;

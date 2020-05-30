@@ -4,6 +4,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import checkTouch from '../helper/checkTouch'
 import Nav from './Nav'
 import Foot from './Foot'
+import Footer from './footer'
 import useGoogleFonts from '../../hooks/useGoogleFonts'
 
 const Layout = props => {
@@ -115,7 +116,7 @@ const Layout = props => {
                   <GlobalStyle />
                   <Nav />
                   <main>{props.children} </main>
-                  <Foot />
+                  <Footer />
             </ThemeProvider>
       )
 }

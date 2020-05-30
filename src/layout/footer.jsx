@@ -10,6 +10,15 @@ const Container = styled.div`
         ${({ theme }) => theme.center()};
         padding-top: 5%;
         padding-bottom: 5%;
+
+        background-color: ${({ theme }) => theme.redLight};
+        color: #fff;
+
+        @media screen and ( max-width: 464px ) {
+
+                padding-top: 15%;
+                padding-bottom: 15%;
+        }
 `
 
 const Content = styled.footer`
@@ -17,17 +26,20 @@ const Content = styled.footer`
         width: 100%;
 
         display: flex;
+        justify-content: space-evenly;
 
         & > div {
-                width: 50%;
+
+                display: flex;
+                flex-direction: column;
 
                 &.right {
 
-                        display: flex;
-                        flex-direction: column;
+                        /* display: flex;
+                        flex-direction: column; */
 
                         #logo-foot {
-                                margin-top: 5%;
+                                margin-top: 3vh;
                         }
                 }
         }
@@ -35,31 +47,31 @@ const Content = styled.footer`
         @media screen and ( max-width: 464px ) {
                 
                 flex-direction: column;
+                align-items: center;
 
                 & > div {
-
-                        width: 100%;
-
-                        h3, p {
-                                text-align: center;
-                        }
-
-                        &.right {
-
-                                align-items: center;
-                        }
+                        align-items: center;
                 }
         }
 `
 
 const ContactItem = styled.div`
+
+        width: fit-content;
         
         h3 {
-                margin: 5% 0;
+                margin: 15% 0 10%;
 
                 &.first {
                         margin-top: 0;
                 }
+        }
+
+        @media screen and ( max-width: 464px ) {
+
+                h3 {
+                        text-align: center;
+                }     
         }
 `
 
@@ -70,7 +82,7 @@ const Links = styled.ul`
         li {
 
                 a {
-                        color: black;
+                        color: #fff;
                         text-decoration: none;
                 }
 
@@ -81,7 +93,7 @@ const Links = styled.ul`
 
         @media screen and ( max-width: 464px ) {
                 
-                margin-top: 10%;
+                margin-top: 5vh;
 
                 li {
                         text-align: center;

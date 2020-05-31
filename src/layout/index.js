@@ -37,6 +37,10 @@ const Layout = props => {
                   box-sizing: border-box;
             }
 
+            body {
+                  overflow-x: hidden;
+            }
+
             h1 {
                   font-size: 2.5rem;
             }

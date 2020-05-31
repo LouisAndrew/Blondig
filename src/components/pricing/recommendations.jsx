@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Table from './table'
+import TableFlex from './table-flex'
 
 const Container = styled.div`
         
@@ -46,6 +47,7 @@ const Recom = () => {
                 <Container>
                         <Content className='wrap'>
                                 <Table data={materials} /> 
+                                {/* <TableFlex data={materials} /> */}
                         </Content>
                 </Container>
         )

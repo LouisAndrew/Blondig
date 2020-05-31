@@ -47,6 +47,10 @@ const Container = styled.table`
                                         ${({ theme }) => theme.center()};
                                 }
                         }
+
+                        td {
+                                text-align: center;
+                        }
                 }
 
                 th, td {
@@ -181,6 +185,9 @@ const Table = ({ data }) => {
 
 Table.propTypes = {
 
+        data: PropTypes.objectOf(
+                PropTypes.object,
+        ).isRequired,
 }
 
 export default Table

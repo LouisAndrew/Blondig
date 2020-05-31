@@ -12,7 +12,9 @@ import { reformatOptions } from '../../helper/formatter'
  * @param defaultString => default name for ceckbox, e.g Bahan Kaos, Jenis Kaos usw.
  * @param id => basic name for the seleect box, e.g 'size', 'bahan'
  */
-const CheckBox = ({ data, onChange, defaultString, id, disabled }) => {
+const CheckBox = ({ data, onChange, defaultString, id }) => {
+
+    const disabled = !data.length > 0
 
     const toggleClass = () => {
 
@@ -22,7 +24,9 @@ const CheckBox = ({ data, onChange, defaultString, id, disabled }) => {
 
     const defaultClick = () => {
 
-        toggleClass()
+        if ( !disabled ) {
+            toggleClass()
+        }
     }
 
     const radioClick = e => {
@@ -32,15 +36,17 @@ const CheckBox = ({ data, onChange, defaultString, id, disabled }) => {
         onChange(reformatOptions(e.target.value))
     }
 
+    console.log(disabled, `at ${defaultString}`)
+
     return (
-        <Container>
+        <Container $disabled={disabled}>
             <div onClick={defaultClick} id={`sbox-${id}`} className='default'>
-                <span id={`${id}-selected`}>{defaultString} </span>
+                <span id={`${id}-selected`}>{defaultString}</span>
                 <FontAwesomeIcon className='icon' icon={faChevronDown} />
             </div>
-            <Options id={`options-${id}`}>
+            <Options $disabled={disabled} id={`options-${id}`}>
                 {
-                    data.map(dt => (
+                    data && data.map(dt => (
                         <>
                             <Radio onClick={radioClick} name={id} id={dt} value={dt} />
                             <label  for={dt}>{dt}</label>
@@ -79,7 +85,7 @@ const Options = styled.div`
     }
 
     &.active {
-        max-height: 100vh;
+        max-height: ${props => props.$disabled ? 0 : '100vh'};
     }
 
     label {
@@ -106,14 +112,16 @@ const Container = styled.div`
     .default {
 
         padding: 1vh;
-        border: 1px solid #000;
+        border: 1px solid ${props => props.$disabled ? '#888' : '#000'};
 
         width: fit-content;
         position: relative;
 
+        color: ${props => props.$disabled ? '#888' : '#000'};
+
         &:hover {
 
-            cursor: pointer;
+            cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
         }
 
         .icon {

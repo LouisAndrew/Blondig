@@ -81,6 +81,15 @@ const Content = styled.section`
     @media screen and ( max-width: 464px ) {
         
         flex-direction: column;
+
+        .item {
+            width: 100%;
+
+            &:last-child {
+                /* gonna change when there're new additions! */
+                ${({ theme }) => theme.center()};
+            }
+        }
     }
 `
 

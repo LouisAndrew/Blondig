@@ -172,15 +172,62 @@ const PriceForm = props => {
                 defaultString='Jenis Lengan' 
                 id='lengan' 
                 />
-            {
+            {/* {
                 jenisLengan && <CheckBox 
                                     onChange={changeBahan} 
                                     data={jenisBahan} 
                                     defaultString='Jenis Bahan' 
                                     id='bahan' 
                                     />
+            } */}
+            {
+                <CheckBox 
+                    onChange={changeBahan} 
+                    data={jenisLengan ? jenisBahan : [ ]} 
+                    defaultString='Jenis Bahan' 
+                    id='bahan' 
+                    />
             }
-            {   
+            {
+                    //check if the jenisLengan variant rlly exist within bigFocus
+                <CheckBox 
+                    onChange={kaosChange} 
+                    data={bigFocus[jenisLengan] ? findJenisKaos(bigFocus).map(dt => dt && formatOptions(dt)) : [ ]} 
+                    defaultString='Jenis Kaos' 
+                    id='kaos' 
+                />
+            }
+            {
+                <CheckBox 
+                    onChange={sizeGambarChange}
+                    data={addition ? addition : [ ]}
+                    defaultString='Size Gambar'
+                    id='size-gambar'
+                />
+            }
+            {
+                sizeFocus[0] && (
+                    <div className='size-input'> 
+                        {
+                            sizeFocus.map(x => (
+                                <>
+                                    <SizeRadio className='checkbox' value={x.size} id={x.size} name='sizes' onChange={checkSize} />
+                                    <SizeLabel htmlFor={x.size}>{x.size}</SizeLabel>
+                            </>
+                            ))
+                        } 
+                    </div>
+                )
+            }
+            {
+                ( price > 0 && priceColor > 0 ) ? 
+                    <div className='pricing'>
+                                <h3>Harga Baju Polos:  Rp.{price},-</h3>
+                                <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
+                    </div> :
+                    !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
+            }
+            {/* {   
                 //pertama check big focus really exist ga
                 ( JSON.stringify(bigFocus) !== JSON.stringify({  }) && bigFocus )
 
@@ -223,7 +270,7 @@ const PriceForm = props => {
                             !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
                     }
                 </>
-            }
+            } */}
         </Form>
     )
 }

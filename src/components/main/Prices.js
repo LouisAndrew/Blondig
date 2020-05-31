@@ -8,8 +8,6 @@ const Prices = ({ data: { node: { content } } }) => {
 
     const main = filterPosition('main')
     const misc = filterPosition('misc')
-    console.log(main)
-    console.log(misc)
 
     return (
         <Container>

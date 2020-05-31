@@ -105,19 +105,20 @@ const Footer = () => {
 
         // TODO -> fetch contact from sanity -> add to contact item..
         const data = useStaticQuery( graphql`
-                query ContactQueryFooter {
-                        allSanityContacts {
+                query ContatcsQuery {
+                        allSanityContact {
                                 edges {
                                         node {
-                                                name
                                                 link
+                                                value
+                                                key
                                         }
                                 }
                         }
                 }
         ` )
 
-        const { edges: contacts } = data && data.allSanityContacts
+        const { edges: contacts } = data && data.allSanityContact
 
         console.log(contacts)
 
@@ -129,9 +130,9 @@ const Footer = () => {
                                                 <h3 className='first'>HUBUNGI KAMI</h3>
                                                 {
                                                         contacts && contacts
-                                                                        .filter( contact => contact.node.name === 'Whatsapp' || contact.node.name === 'Email' )
+                                                                        .filter( contact => contact.node.key === 'Whatsapp' || contact.node.key === 'Email' )
                                                                         .map( contact => (
-                                                                                <p>{contact.node.name}: {contact.node.link}</p>
+                                                                                <p>{contact.node.key}: {contact.node.value}</p>
                                                                         ) )
                                                 }
                                         </ContactItem>
@@ -139,9 +140,9 @@ const Footer = () => {
                                                 <h3>ORDER VIA</h3>
                                                 {
                                                         contacts && contacts
-                                                                        .filter( contact => contact.node.name === 'Shoppee' || contact.node.name === 'Tokopedia' )
+                                                                        .filter( contact => contact.node.key === 'Shopee' || contact.node.key === 'Tokopedia' )
                                                                         .map( contact => (
-                                                                                <p>{contact.node.name}: {contact.node.link}</p>
+                                                                                <p>{contact.node.key}: {contact.node.value}</p>
                                                                         ) )
                                                 }
                                         </ContactItem>

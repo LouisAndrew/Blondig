@@ -71,6 +71,8 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
 export default Pricing
 
 const Content = styled.section`
+
+    min-height: 60vh;
     display: flex;
 
     .item {

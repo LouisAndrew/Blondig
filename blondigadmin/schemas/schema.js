@@ -15,6 +15,8 @@ import img from './img'
 import misc from './misc'
 import gallery from './gallery'
 import galleryItem from './galleryItem'
+import teeMat from './teeMat'
+import contact from './contact'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -37,6 +39,9 @@ export default createSchema({
       misc,
 
       gallery,
-      galleryItem
+      galleryItem,
+
+      teeMat,
+      contact
   ])
 })

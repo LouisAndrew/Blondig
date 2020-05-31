@@ -12,14 +12,14 @@ const PriceForm = props => {
         jenisLengan: ''
     }
 
-    const [ inFocus, setInFocus ] = useState({ })
     const [ sizeFocus, setSizeFocus ] = useState([ ])
     const [ bigFocus, setBigFocus ] = useState(false)
     const [ bigFocusString, setBigFocusString ] = useState('')
+
     const [ price, setPrice ] = useState(0)
     const [ priceColor, setPriceColor ] = useState(0)
+    const [ colors, setColors ] = useState([ ])
 
-    // const [ size, setSize ] = useState('')
     const [ jenisKaos, setJenisKaos ] = useState('')
     const [ jenisLengan, setJenisLengan ] = useState('')
     const [ sizeGambar, setSizeGambar ] = useState('')
@@ -41,16 +41,16 @@ const PriceForm = props => {
 
             //get tee object by original size provided..
             const teeObject = sizeFocus.filter(sz => sz.size === size)[0]
-            const price = teeObject.price
-            const priceColor = teeObject.priceColor
+            const { price, priceColor, availableColor } = teeObject
 
-            const sizes =  sizeFocus
-                            .filter(szObject => szObject.price === price)
-                            .map(filtered => filtered.size)
+            // const sizes =  sizeFocus
+            //                 .filter(szObject => szObject.price === price)
+            //                 .map(filtered => filtered.size)
             
             return {
                 price,
                 priceColor,
+                availableColor
                 // sizes
             }
         }
@@ -134,16 +134,19 @@ const PriceForm = props => {
     const checkSize = e => {
             
         //filter the price by size name
-        const { price, priceColor } = filterBySize(e.target.value)
+        const { price, priceColor, availableColor } = filterBySize(e.target.value)
 
         //if size is checked => change price with the price provided from filter
         if (e.target.checked) {
+
             setPrice(price)
             setPriceColor(priceColor)
+            setColors(availableColor)
         } else {
             //if not, set price to 0
             setPrice(0)
             setPriceColor(0)
+            setColors([ ])
         }
     }
 
@@ -171,22 +174,14 @@ const PriceForm = props => {
                 data={values.map(vl => formatOptions(vl))} 
                 defaultString='Jenis Lengan' 
                 id='lengan' 
-                />
-            {/* {
-                jenisLengan && <CheckBox 
-                                    onChange={changeBahan} 
-                                    data={jenisBahan} 
-                                    defaultString='Jenis Bahan' 
-                                    id='bahan' 
-                                    />
-            } */}
+            />
             {
                 <CheckBox 
                     onChange={changeBahan} 
                     data={jenisLengan ? jenisBahan : [ ]} 
                     defaultString='Jenis Bahan' 
                     id='bahan' 
-                    />
+                />
             }
             {
                     //check if the jenisLengan variant rlly exist within bigFocus
@@ -213,7 +208,7 @@ const PriceForm = props => {
                                 <>
                                     <SizeRadio className='checkbox' value={x.size} id={x.size} name='sizes' onChange={checkSize} />
                                     <SizeLabel htmlFor={x.size}>{x.size}</SizeLabel>
-                            </>
+                                </>
                             ))
                         } 
                     </div>
@@ -227,50 +222,6 @@ const PriceForm = props => {
                     </div> :
                     !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
             }
-            {/* {   
-                //pertama check big focus really exist ga
-                ( JSON.stringify(bigFocus) !== JSON.stringify({  }) && bigFocus )
-
-                &&
-
-                <>
-                    {
-                        //check if the jenisLengan variant rlly exist within bigFocus
-                        bigFocus[jenisLengan] && <CheckBox 
-                                                    onChange={kaosChange} 
-                                                    data={findJenisKaos(bigFocus).map(dt => dt && formatOptions(dt))} 
-                                                    defaultString='Jenis Kaos' 
-                                                    id='kaos' 
-                                                    />
-                    }
-                    {
-                        addition && <CheckBox 
-                                        onChange={sizeGambarChange}
-                                        data={addition}
-                                        defaultString='Size Gambar'
-                                        id='size-gambar'
-                                        />
-                    }
-                    {
-                        sizeFocus[0] && <div className='size-input'> 
-                                            {
-                                                sizeFocus.map(x => <>
-                                                                        <SizeRadio className='checkbox' value={x.size} id={x.size} name='sizes' onChange={checkSize} />
-                                                                        <SizeLabel htmlFor={x.size}>{x.size}</SizeLabel>
-                                                                   </>)
-                                            } 
-                                        </div>
-                    }
-                    {
-                        ( price > 0 && priceColor > 0 ) ? 
-                            <div className='pricing'>
-                                <h3>Harga Baju Polos:  Rp.{price},-</h3>
-                                <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
-                            </div> :
-                            !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
-                    }
-                </>
-            } */}
         </Form>
     )
 }

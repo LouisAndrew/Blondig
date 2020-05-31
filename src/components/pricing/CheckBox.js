@@ -36,8 +36,6 @@ const CheckBox = ({ data, onChange, defaultString, id }) => {
         onChange(reformatOptions(e.target.value))
     }
 
-    console.log(disabled, `at ${defaultString}`)
-
     return (
         <Container $disabled={disabled}>
             <div onClick={defaultClick} id={`sbox-${id}`} className='default'>

@@ -120,8 +120,6 @@ const Footer = () => {
 
         const { edges: contacts } = data && data.allSanityContact
 
-        console.log(contacts)
-
         return (
                 <Container>
                         <Content className='wrap'>

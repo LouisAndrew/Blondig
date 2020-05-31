@@ -5,7 +5,6 @@ import { useNavigate } from '@reach/router'
 import useFilteredData from '../../../hooks/useFilteredData'
 import PriceForm from './PriceForm'
 import Button from '../Button'
-import Recom from './recommendations'
 
 const Pricing = ({ allSanityTee: { edges: passedData } }) => {
 
@@ -63,7 +62,6 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
                 </div>
                 <div className='item'>
                     <Button onClick={click} bColor='redLight' color='white' text='Cek sizing guide' />
-                    <Recom />
                 </div>
             </Content>
         </Container>
@@ -74,7 +72,6 @@ export default Pricing
 
 const Content = styled.section`
 
-    min-height: 50vh;
     display: flex;
 
     .item {

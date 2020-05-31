@@ -1,13 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+
+import Table from './table'
 
 const Container = styled.div`
-
+        
+        width: 100%;
+        ${({ theme }) => theme.center()};
+        padding-bottom: 10%;
 `
 
-const Recom = props => {
+const Content = styled.div`
+  
+`
+
+const Recom = () => {
 
         const data = useStaticQuery( graphql`
                 query RecomQuery {
@@ -31,11 +40,13 @@ const Recom = props => {
                 }
         ` )
 
-        console.log(data)
+        const { edges: materials } = data && data.allSanityMaterials
 
         return (
                 <Container>
-                        
+                        <Content className='wrap'>
+                                <Table data={materials} /> 
+                        </Content>
                 </Container>
         )
 }

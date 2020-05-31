@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 import { reformatOptions } from '../../helper/formatter'
 
 /**
@@ -11,7 +12,7 @@ import { reformatOptions } from '../../helper/formatter'
  * @param defaultString => default name for ceckbox, e.g Bahan Kaos, Jenis Kaos usw.
  * @param id => basic name for the seleect box, e.g 'size', 'bahan'
  */
-const CheckBox = ({ data, onChange, defaultString, id }) => {
+const CheckBox = ({ data, onChange, defaultString, id, disabled }) => {
 
     const toggleClass = () => {
 

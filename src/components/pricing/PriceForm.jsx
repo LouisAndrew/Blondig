@@ -3,6 +3,85 @@ import styled from 'styled-components'
 import CheckBox from './CheckBox'
 import { formatOptions } from '../../helper/formatter'
 
+const Form = styled.form`
+    
+    width: 80%;
+    padding: 0 5%; 
+
+    display: flex;
+    flex-direction: column;
+
+    .size-input {
+
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+    }
+
+    .pricing {
+
+        h3 {
+
+            font-weight: normal;
+        }
+    }
+
+    .err {
+        color: red;
+    }
+
+    @media screen and ( max-width: 640px ) {
+
+        width: 100%;
+
+        flex-direction: row;
+
+        & > div {
+
+            width: 50%;
+
+            &.sizes {
+
+                display: flex;
+                flex-direction: column-reverse;
+
+                padding-top: 1vh;
+            }
+        }
+    }
+`
+
+const SizeRadio = styled.input.attrs(props => ({
+    type: 'radio'
+}))`
+    display: none;
+
+    &:checked + label {
+        
+        background-color: #000;
+        color: #fff;
+    }
+`
+
+const SizeLabel = styled.label`
+
+    margin: 2vh 1vh 3vh 0;
+    padding: 2vh;
+
+    font-family: 'Muli', sans-serif;
+    transition: .4s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, .2);
+    }
+`
+
 const PriceForm = props => {
 
     const queryTemplate = {
@@ -150,6 +229,8 @@ const PriceForm = props => {
         }
     }
 
+    const formatLongString = str => typeof str === 'string' && str.includes('Sz') ? str.split(' ')[1] : str
+
     //queried by the select menus..
     const query = {
         jenisKaos,
@@ -169,130 +250,65 @@ const PriceForm = props => {
 
     return (
         <Form>
-            <CheckBox 
-                onChange={lenganChange} 
-                data={values.map(vl => formatOptions(vl))} 
-                defaultString='Jenis Lengan' 
-                id='lengan' 
-            />
-            {
+            <div className="checks">
                 <CheckBox 
-                    onChange={changeBahan} 
-                    data={jenisLengan ? jenisBahan : [ ]} 
-                    defaultString='Jenis Bahan' 
-                    id='bahan' 
+                    onChange={lenganChange} 
+                    data={values.map(vl => formatOptions(vl))} 
+                    defaultString='Jenis Lengan' 
+                    id='lengan' 
                 />
-            }
-            {
-                    //check if the jenisLengan variant rlly exist within bigFocus
-                <CheckBox 
-                    onChange={kaosChange} 
-                    data={bigFocus[jenisLengan] ? findJenisKaos(bigFocus).map(dt => dt && formatOptions(dt)) : [ ]} 
-                    defaultString='Jenis Kaos' 
-                    id='kaos' 
-                />
-            }
-            {
-                <CheckBox 
-                    onChange={sizeGambarChange}
-                    data={addition ? addition : [ ]}
-                    defaultString='Size Gambar'
-                    id='size-gambar'
-                />
-            }
-            {
-                sizeFocus[0] && (
-                    <div className='size-input'> 
-                        {
-                            sizeFocus.map(x => (
-                                <>
-                                    <SizeRadio className='checkbox' value={x.size} id={x.size} name='sizes' onChange={checkSize} />
-                                    <SizeLabel htmlFor={x.size}>{x.size}</SizeLabel>
-                                </>
-                            ))
-                        } 
-                    </div>
-                )
-            }
-            {
-                ( price > 0 && priceColor > 0 ) ? 
-                    <div className='pricing'>
-                                <h3>Harga Baju Polos:  Rp.{price},-</h3>
-                                <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
-                    </div> :
-                    !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
-            }
+                {
+                    <CheckBox 
+                        onChange={changeBahan} 
+                        data={jenisLengan ? jenisBahan : [ ]} 
+                        defaultString='Jenis Bahan' 
+                        id='bahan' 
+                    />
+                }
+                {
+                        //check if the jenisLengan variant rlly exist within bigFocus
+                    <CheckBox 
+                        onChange={kaosChange} 
+                        data={bigFocus[jenisLengan] ? findJenisKaos(bigFocus).map(dt => dt && formatOptions(dt)) : [ ]} 
+                        defaultString='Jenis Kaos' 
+                        id='kaos' 
+                    />
+                }
+                {
+                    <CheckBox 
+                        onChange={sizeGambarChange}
+                        data={addition ? addition : [ ]}
+                        defaultString='Size Gambar'
+                        id='size-gambar'
+                    />
+                }
+            </div>
+            <div className="sizes">
+                {
+                    sizeFocus[0] && (
+                        <div className='size-input'> 
+                            {
+                                sizeFocus.map(x => (
+                                    <>
+                                        <SizeRadio className='checkbox' value={x.size} id={x.size} name='sizes' onChange={checkSize} />
+                                        <SizeLabel htmlFor={x.size}>{formatLongString(x.size)}</SizeLabel>
+                                    </>
+                                ))
+                            } 
+                        </div>
+                    )
+                }
+                {
+                    ( price > 0 && priceColor > 0 ) ? 
+                        <div className='pricing'>
+                                    <h3>Harga Baju Polos:  Rp.{price},-</h3>
+                                    <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
+                        </div> :
+                        !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
+                }
+            </div>
         </Form>
     )
 }
 
 export default PriceForm
-
-const SizeLabel = styled.label`
-
-    margin: 2vh 1vh 3vh 0;
-    padding: 2vh;
-
-    font-family: 'Muli', sans-serif;
-    transition: .4s;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-
-        cursor: pointer;
-        background-color: rgba(0, 0, 0, .2);
-    }
-`
-
-const SizeRadio = styled.input.attrs(props => ({
-    type: 'radio'
-}))`
-    display: none;
-
-    &:checked + label {
-        
-        background-color: #000;
-        color: #fff;
-    }
-`
-
-// const SelectBox = styled.select`
-  
-// ` 
-
-const Form = styled.form`
-    
-    width: 80%;
-    padding: 0 5%; 
-
-    display: flex;
-    flex-direction: column;
-
-    .size-input {
-
-        display: flex;
-        flex-flow: row wrap;
-        width: 100%;
-    }
-
-    .pricing {
-
-        h3 {
-
-            font-weight: normal;
-        }
-    }
-
-    .err {
-        color: red;
-    }
-
-    @media screen and ( max-width: 640px ) {
-
-        width: 100%;
-        align-items: center;
-    }
-`

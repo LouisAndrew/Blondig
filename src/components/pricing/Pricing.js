@@ -6,6 +6,39 @@ import useFilteredData from '../../../hooks/useFilteredData'
 import PriceForm from './PriceForm'
 import Button from '../Button'
 
+const Container = styled.div`
+`
+
+const Content = styled.section`
+
+    display: flex;
+    margin: 15vh 0;
+
+    .item {
+
+        width: 50%;
+    }
+
+    @media screen and ( max-width: 640px ) {
+        
+        flex-direction: column-reverse;
+        margin: 15vh 0 5vh;
+
+        .item {
+
+            width: 100%;
+            margin: 2vh 0%;
+
+            &:last-child {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+`
+
 const Pricing = ({ allSanityTee: { edges: passedData } }) => {
 
     //filter by DTG, Printable, Polyflex
@@ -69,35 +102,3 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
 }
 
 export default Pricing
-
-const Content = styled.section`
-
-    display: flex;
-    margin: 15vh 0;
-
-    .item {
-
-        width: 50%;
-    }
-
-    @media screen and ( max-width: 640px ) {
-        
-        flex-direction: column;
-
-        .item {
-
-            margin: 8vh 0;
-            width: 100%;
-
-            &:last-child {
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    }
-`
-
-const Container = styled.div`
-`

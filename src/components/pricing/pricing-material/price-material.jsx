@@ -3,44 +3,32 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Container = styled.div`
-
-        width: 100%;
+        
         ${({ theme }) => theme.center()};
 `
 
 const Content = styled.div`
         
         margin: 15vh 0;
-        min-height: 60vh;
 
         h1 {
                 color: ${({ theme }) => theme.red};
         }
 `
 
-const Images = styled.div`
-        
-        width: 100%;
-
-        display: flex;
-`
-
-const Gallery = props => {
+const PriceBasedMaterial = ({ material }) => {
 
         return (
                 <Container>
                         <Content className='wrap'>
-                                <h1>Gallery and Testimonials</h1>
-                                <Images>
-
-                                </Images>
+                                <h1>{`Pricelist ${material}`}</h1>
                         </Content>
                 </Container>
         )
 }
 
-Gallery.propTypes = {
+PriceBasedMaterial.propTypes = {
 
 }
 
-export default Gallery
+export default PriceBasedMaterial

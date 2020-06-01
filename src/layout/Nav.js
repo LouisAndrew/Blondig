@@ -137,9 +137,9 @@ const Links = () => {
                               <span>Harga <FontAwesomeIcon icon={faCaretDown} /></span> 
                               <div className='dropdown'>
                                     <Link id='/pricing' to='/pricing'>Cek Harga Kaosmu!</Link>
-                                    <Link to='/'>Pricelist DTG</Link>
-                                    <Link to='/'>Pricelist Polyfek</Link>
-                                    <Link to='/'>Pricelist Printable</Link>
+                                    <Link to='/pricing/dtg'>Pricelist DTG</Link>
+                                    <Link to='/pricing/polyflex'>Pricelist Polyfek</Link>
+                                    <Link to='/pricing/printable'>Pricelist Printable</Link>
                               </div>
                         </li>
                         <li><Link id='/gallery' to='/gallery'>Gallery</Link> </li>

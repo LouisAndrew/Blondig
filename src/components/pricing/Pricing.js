@@ -73,6 +73,7 @@ export default Pricing
 const Content = styled.section`
 
     display: flex;
+    margin: 15vh 0;
 
     .item {
 
@@ -97,5 +98,4 @@ const Content = styled.section`
 `
 
 const Container = styled.div`
-    padding: 10vh 0;
 `

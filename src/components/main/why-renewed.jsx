@@ -13,8 +13,8 @@ const Container = styled.div`
 
 const Content = styled.div`
         
-        padding-top: 8vh !important;
-        padding-bottom: 8vh !important;
+        padding-top: 16vh !important;
+        padding-bottom: 16vh !important;
 
         h2 { 
                 text-align: center; 
@@ -28,7 +28,13 @@ const CardContainer = styled.div`
         flex-flow: row wrap;
         justify-content: space-between;
 
-        margin-top: 4vh
+        margin-top: 8vh;
+
+        @media screen and ( max-width: 840px ) {
+
+                flex-flow: column wrap;
+                align-items: center;
+        }
 `
 
 const Card = styled.div`
@@ -37,17 +43,52 @@ const Card = styled.div`
 
         margin-bottom: 4vh;
         padding: 1rem 2rem;
-        width: 40%;
+        width: 45%;
 
         background-color: #F4ECD8;
-        border-radius: 4px;
-        box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+        border-radius: 8px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
 
         .card-img {
                 height: 125px;
                 width: 125px;
 
                 margin-right: 2rem;
+        }
+
+        h3 {
+                margin-bottom: 1rem;
+        }
+
+        @media screen and ( max-width: 1040px ) {
+                
+                .card-img {
+                        height: calc( 125px * .8 );
+                        width: calc( 125px * .8 );
+
+                        img {
+                                transform: scale(.7) translate(-25%, -25%);
+                        }
+                }
+        }
+
+        @media screen and ( max-width: 840px ) {
+                
+                width: 60%;
+        }
+
+        @media screen and ( max-width: 640px ) {
+                
+                width: 100%;
+
+                .card-img {
+                        height: calc( 125px * .7 );
+                        width: calc( 125px * .7 );
+
+                        img {
+                                transform: scale(.6) translate(-35%, -35%);
+                        }
+                }
         }
 `
 
@@ -77,18 +118,9 @@ const Why = ({ data: { node: { content } } }) => {
         ` )
 
         const mainData = extractPosMain('main', content)
-        const miscData = extractPosMain('misc', content)
-
         const { items } = data && data.sanityHomepage.content[1]
-  
-        // const fluid = mainData.items[0].media[0].image.asset.fluid
-  
-        // const cardsDatas = miscData.items.map(dt => <WhyCards heading={dt.heading} subheading={dt.subheading} img={dt.media[0].image.asset.fluid} />)
-
+    
         const { heading } = mainData && mainData.items[0]
-
-        console.log(miscData)
-        console.log(items)
 
         return (
                 <Container>

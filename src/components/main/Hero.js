@@ -66,7 +66,7 @@ const Hero = ({ data: { node } }, className) => {
             fluid,
             {
                   ...fluidMobile,
-                  media: '(max-width: 464px)'
+                  media: '(max-width: 640px)'
             }
       ]
 

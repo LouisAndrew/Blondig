@@ -82,7 +82,7 @@ const Content = styled.div`
             }
       }
 
-      @media screen and (max-width: 464px) {
+      @media screen and (max-width: 640px) {
 
             flex-direction: column;
 

@@ -63,7 +63,7 @@ const Content = styled.section`
             }
       }
 
-      @media screen and (max-width: 464px) {
+      @media screen and (max-width: 640px) {
 
             .left {
                   width: 0;
@@ -89,7 +89,7 @@ const Container = styled.div`
             height: 100%;
             z-index: 2;
 
-            @media screen and (max-width: 464px) {
+            @media screen and (max-width: 640px) {
                   display: none;
             }
       }
@@ -137,7 +137,7 @@ const Card = styled.div`
             }
       }
 
-      @media screen and (max-width: 464px) and (orientation: portrait) {
+      @media screen and (max-width: 640px) and (orientation: portrait) {
             
             .card-img {
                   width: 40%;

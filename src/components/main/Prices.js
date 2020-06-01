@@ -71,7 +71,7 @@ const CardContent = styled.div`
         align-items: center;
         justify-content: center;
 
-        @media screen and ( max-width: 464px ) {
+        @media screen and ( max-width: 640px ) {
             
             height: 160px;
         }
@@ -87,7 +87,7 @@ const CardContent = styled.div`
         
         width: 60%;
     }
-    @media screen and ( max-width: 464px ) {
+    @media screen and ( max-width: 640px ) {
         
         width: 80%;
     }

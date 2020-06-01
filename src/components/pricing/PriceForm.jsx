@@ -290,7 +290,7 @@ const Form = styled.form`
         color: red;
     }
 
-    @media screen and ( max-width: 464px ) {
+    @media screen and ( max-width: 640px ) {
 
         width: 100%;
         align-items: center;

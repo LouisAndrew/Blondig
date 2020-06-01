@@ -77,15 +77,9 @@ const Content = styled.section`
     .item {
 
         width: 50%;
-
-        &:last-child {
-
-            display: flex;
-            flex-direction: column
-        }
     }
 
-    @media screen and ( max-width: 464px ) {
+    @media screen and ( max-width: 640px ) {
         
         flex-direction: column;
 
@@ -93,6 +87,9 @@ const Content = styled.section`
             width: 100%;
 
             &:last-child {
+
+                display: flex;
+                flex-direction: column;
                 align-items: center;
             }
         }

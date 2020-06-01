@@ -56,7 +56,7 @@ const NavCont = styled.ul`
             color: #000;
       }
 
-      @media screen and (max-width: 464px) {
+      @media screen and (max-width: 640px) {
             
             flex-direction: column;
             align-items: flex-start;

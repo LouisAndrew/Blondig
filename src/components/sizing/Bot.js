@@ -84,7 +84,7 @@ const Content = styled.section`
             }
       }
 
-      @media screen and (max-width: 464px) {
+      @media screen and (max-width: 640px) {
             
             h2 {
                   text-align: center;

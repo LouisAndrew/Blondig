@@ -83,7 +83,7 @@ const Layout = props => {
                   }
             }
 
-            @media screen and (max-width: 464px) {
+            @media screen and (max-width: 640px) {
                   
                   :root {
                         font-size: 12px;

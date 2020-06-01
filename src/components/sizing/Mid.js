@@ -58,7 +58,7 @@ const MidItem = styled.div`
             }
       }
 
-      @media screen and (max-width: 464px) {
+      @media screen and (max-width: 640px) {
             
             margin: 2vh 0;
 

@@ -41,7 +41,7 @@ const Hero = ({ data: { node } }, className) => {
                                           media {
                                                 image {
                                                       asset {
-                                                            fluid(maxWidth: 464) {
+                                                            fluid(maxWidth: 640) {
                                                                   ...GatsbySanityImageFluid
                                                             }
                                                       }

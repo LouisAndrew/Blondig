@@ -51,6 +51,7 @@ const MidItem = styled.div`
       align-items: center;
 
       .det {
+
             padding: 0 10%;
 
             h3 {
@@ -63,7 +64,7 @@ const MidItem = styled.div`
             margin: 2vh 0;
 
             .det {
-                  padding: 0 5%;
+                  padding: 0 0 0 10%;
             }
       }
 `
@@ -81,7 +82,18 @@ const Content = styled.section`
             .img-top {
                   width: 100%;
                   margin: 8vh 0;
+
+
+                  @media screen and ( max-width: 640px ) {
+                        
+                        width: 120%;
+                        transform: translate(-5%, 0);
+                  }
             }
+
+            h2 {
+                  text-align: center;
+            }  
       }
 
       & > div:last-child {
@@ -90,18 +102,20 @@ const Content = styled.section`
             width: 100%;
             margin: 12vh 0;
 
-            h2 {
-                  text-align: center;
-            }
-
             .img-bot {
                   margin: 8vh 0;
                   width: 70%;
                   align-self: center;
+
+                  @media screen and ( max-width: 840px ) {
+                        
+                        width: 100%;
+                  }
             }
       }
 
       .middle {
+
             width: 100%;
             display: flex;
 

@@ -85,6 +85,8 @@ const Content = styled.section`
         flex-direction: column;
 
         .item {
+
+            margin: 8vh 0;
             width: 100%;
 
             &:last-child {

@@ -143,7 +143,7 @@ const Links = () => {
                               </div>
                         </li>
                         <li><Link id='/gallery' to='/gallery'>Gallery</Link> </li>
-                        <li><Link id='/contact' to='contact'>Hubungi Kami</Link> </li>
+                        {/* <li><Link id='/contact' to='contact'>Hubungi Kami</Link> </li> */}
                    </div>
             </Ul>
       )

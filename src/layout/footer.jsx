@@ -152,7 +152,7 @@ const Footer = () => {
                                                 <li><Link to='/sizing'>Size Chart</Link></li>
                                                 <li><Link to='/sizing'>Harga</Link></li>
                                                 {/* <li><Link to='/gallery'>Gallery</Link></li> */}
-                                                <li><Link to='/contact'>Hubungi Kami</Link></li>
+                                                {/* <li><Link to='/contact'>Hubungi Kami</Link></li> */}
                                         </Links>
                                         <Logo id='logo-foot' />
                                 </div>

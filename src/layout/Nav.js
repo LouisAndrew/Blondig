@@ -62,6 +62,14 @@ const Content = styled.nav`
 
             background-color: rgba(0, 0, 0, 0);
             box-shadow: none;
+
+            li a, span {
+                  color: #fff !important;
+            }
+
+            #expand {
+                  fill: #fff !important;
+            }
       }
 
       @media screen and (max-width: 840px) {
@@ -261,7 +269,7 @@ const Ul = styled.ul`
 
 
                         a, span {
-                              font-size: 1.2rem;
+                              font-size: 1.8rem;
                               font-weight: bold;
                         }
 
@@ -272,6 +280,12 @@ const Ul = styled.ul`
                                     max-height: 0;
                                     top: 0;
                                     margin-left: 10%;
+
+                                    background-color: rgba(0, 0, 0, 0);
+
+                                    a {
+                                          padding: 3vw 5vw;
+                                    }
                               }
 
                               &:active, &:hover {

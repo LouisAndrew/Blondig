@@ -99,7 +99,9 @@ const WhyCards = ({ img, heading, subheading }) => {
 
       return (
             <Card>
-                  <Img className='card-img' fluid={img} />
+                  <div className='img'>
+                        <Img className='card-img' fluid={img} />
+                  </div>
                   <div className='det'>
                         <h3>{heading} </h3>
                         <p>{subheading} </p>
@@ -116,8 +118,10 @@ const Card = styled.div`
       width: 100%;
       margin: 5%;
 
-      .card-img {
-            width: 15%;
+      .img {
+            position: relative !important;
+            height: 100px;
+            width: 100px;
       }
 
       .det {

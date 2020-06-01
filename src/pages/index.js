@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from '../layout'
 import SEO from "../components/seo"
 import Hero from "../components/main/Hero"
-import Why from "../components/main/Why"
+import Why from "../components/main/why-renewed"
 import Proccess from "../components/main/Proccess"
 import { extractPositionId } from '../helper/extracts'
 import Prices from "../components/main/Prices"

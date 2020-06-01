@@ -130,7 +130,7 @@ const Table = styled.table`
       font-family: 'Muli', sans-serif;
 
       th, td {
-            padding: 1rem 2rem;
+            padding: .5rem 1rem;
             text-align: center;
             
             border-bottom: 1px solid #000;

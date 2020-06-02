@@ -146,7 +146,7 @@ const PriceForm = props => {
     //filter the null objects from props (useFilteredData hooks)
     const filterNull = obj => {
 
-        return Object.keys(obj).filter(x => obj[x] !== null && x !== 'length')
+        return Object.keys(obj).filter(x => obj[x] !== null && x !== 'length' && typeof obj[x] !== 'function')
     }
 
 
@@ -236,6 +236,16 @@ const PriceForm = props => {
     const lenganChange = val => {
 
         val !== 'def' ? setJenisLengan(val) : setJenisLengan('')
+        if ( val !== 'def' ) {
+
+            setJenisLengan(val)
+            props.changeFocus(val)
+
+        } else {
+
+            setJenisLengan('')
+            props.changeFocus('')
+        }
     }
 
     const kaosChange = val => {
@@ -285,6 +295,8 @@ const PriceForm = props => {
 
         addition = bigFocusString === 'DTG' ? [ 'A3', 'A4', 'A5', 'A6' ] : [ '10x10cm', '10x30cm', '20x30xm', '30x30cm', '40x30cm' ]
     }
+
+    console.log(typeof props.changeFocus)
 
     return (
         <Form>

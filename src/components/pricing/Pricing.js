@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from '@reach/router'
+import Img from 'gatsby-image'
 
 import useFilteredData from '../../../hooks/useFilteredData'
 import PriceForm from './PriceForm'
@@ -17,6 +18,20 @@ const Content = styled.section`
     .item {
 
         width: 50%;
+
+        &:nth-child(2) {
+
+            width: fit-content;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .img {
+                width: 300px;
+                margin-bottom: 10%;
+            }
+        }
     }
 
     @media only screen and ( max-width: 640px ) {
@@ -72,8 +87,18 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
     const Printable = extractVar( 'Printable', passedData )
 
     const [ data, setData ] = useState({ })
+    const [ inFocus, setInFocus ] = useState('')
     const filteredData = useFilteredData(DTG, Printable, Polyflex)
     const goToSizing = useNavigate()
+
+    // get all images available from passed Data
+    const images = passedData.map( variants => ({ img: variants.node.productImage, varName: variants.node.teeId, }) )
+    // get certain image -> based on inFocus state!
+    const displayImg = images.filter( img => img.varName === inFocus )[0]
+
+    const defaultImg = images.filter( img => img.varName === 'TAMBAH_SISI' )[0].img.asset.fluid
+
+    const changeFocus = val => setInFocus(val)
 
     const click = () => {
 
@@ -91,9 +116,12 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
         <Container>
             <Content className='wrap'>
                 <div className='item'>
-                    <PriceForm {...data} />
+                    <PriceForm changeFocus={changeFocus} {...data} />
                 </div>
                 <div className='item'>
+                    <div className='img'>
+                        <Img fluid={displayImg ? displayImg.img.asset.fluid : defaultImg} />
+                    </div>
                     <Button onClick={click} bColor='redLight' color='white' text='Cek sizing guide' />
                 </div>
             </Content>

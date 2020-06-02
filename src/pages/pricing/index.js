@@ -33,6 +33,13 @@ export const query = graphql`
                         priceColor
                         pictureSize
                     }
+                    productImage {
+                        asset {
+                            fluid {
+                                ...GatsbySanityImageFluid
+                            }
+                        }
+                    }
                 }
             }
         }

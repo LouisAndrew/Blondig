@@ -10,7 +10,7 @@ const Proccess = ({ data: { node: { content } } }) => {
       const mainData = extractPosMain('main', content)
       const miscData = extractPosMain('misc', content)
 
-      const miscCards = miscData.items.map(dt => <WhyCard heading={dt.heading} subheading={dt.subheading} fluid={dt.media[0].image.asset.fluid} />)
+      const miscCards = miscData.items.map(dt => <WhyCard key={dt.heading} heading={dt.heading} subheading={dt.subheading} fluid={dt.media[0].image.asset.fluid} />)
 
       return (
             <Container>

@@ -296,7 +296,7 @@ const PriceForm = props => {
         addition = bigFocusString === 'DTG' ? [ 'A3', 'A4', 'A5', 'A6' ] : [ '10x10cm', '10x30cm', '20x30xm', '30x30cm', '40x30cm' ]
     }
 
-    console.log(typeof props.changeFocus)
+    (typeof props.changeFocus)
 
     return (
         <Form>

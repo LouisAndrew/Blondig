@@ -96,7 +96,7 @@ const Hero = ({ data: { node } }, className) => {
 
       return (
             <Container ref={ref} id='hero' img={alternative}>
-                  <Img className='img' fixed={sources} />
+                  <Img className='img' fluid={sources} />
                   <Content className='wrap'>
                         <div>
                               <Button text='Shop Now!' color='#fff' bColor='redLight' />

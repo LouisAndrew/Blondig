@@ -131,7 +131,7 @@ const Why = ({ data: { node: { content } } }) => {
                                 <h2>{heading}</h2>
                                 <CardContainer>
                                         {
-                                                items && items.map( dt => <WhyCard {...dt} /> ) 
+                                                items && items.map( dt => <WhyCard key={dt.heading} {...dt} /> ) 
                                         }
                                 </CardContainer>
                         </Content>

@@ -37,7 +37,7 @@ const Image = styled.div`
 
 const Gallery = ({ content }) => {
 
-        console.log(content)
+        (content)
 
         return (
                 <Container>

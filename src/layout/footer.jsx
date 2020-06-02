@@ -129,7 +129,7 @@ const Footer = () => {
                                                         contacts && contacts
                                                                         .filter( contact => contact.node.key === 'Whatsapp' || contact.node.key === 'Email' )
                                                                         .map( contact => (
-                                                                                <p>{contact.node.key}: {contact.node.value}</p>
+                                                                                <p key={contact.node.key}>{contact.node.key}: {contact.node.value}</p>
                                                                         ) )
                                                 }
                                         </ContactItem>
@@ -139,7 +139,7 @@ const Footer = () => {
                                                         contacts && contacts
                                                                         .filter( contact => contact.node.key === 'Shopee' || contact.node.key === 'Tokopedia' )
                                                                         .map( contact => (
-                                                                                <p>{contact.node.key}: {contact.node.value}</p>
+                                                                                <p key={contact.node.key}>{contact.node.key}: {contact.node.value}</p>
                                                                         ) )
                                                 }
                                         </ContactItem>

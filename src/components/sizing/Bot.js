@@ -106,7 +106,7 @@ const Container = styled.div`
 
 const Card = ({heading, subheading, color}) => {
 
-      console.log(typeof subheading)
+      (typeof subheading)
       const text = subheading[1] ? <>{ subheading.map(txt => <p className='double'>{txt}</p>) }</> : <p>{subheading} </p>
 
       return (

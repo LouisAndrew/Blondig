@@ -45,10 +45,10 @@ const CheckBox = ({ data, onChange, defaultString, id }) => {
             <Options $disabled={disabled} id={`options-${id}`}>
                 {
                     data && data.map(dt => (
-                        <>
+                        <React.Fragment key={dt}>
                             <Radio onClick={radioClick} name={id} id={dt} value={dt} />
-                            <label  for={dt}>{dt}</label>
-                        </>
+                            <label htmlFor={dt}>{dt}</label>
+                        </React.Fragment>
                     ))
                 }
             </Options>

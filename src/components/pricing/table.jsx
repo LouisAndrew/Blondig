@@ -6,7 +6,7 @@ import { useNavigate } from '@reach/router'
 
 import Button from '../Button'
 
-const Container = styled.table`
+const Container = styled.div`
 
         td {
                 font-family: 'Muli', sans-serif;
@@ -86,7 +86,7 @@ const Table = ({ data }) => {
         return (
                 <Container>
 
-                        <div className="wide">
+                        <table className="wide">
                                 <thead>
                                         <tr>
                                                 <th />
@@ -104,7 +104,7 @@ const Table = ({ data }) => {
                                                 <th />
                                                 {
                                                         data && data.map( dt => (
-                                                                <th>
+                                                                <th key={`${dt.node.heading}-button`}>
                                                                         <Button onClick={() => goToClick(dt.node.heading)} key={dt.node.heading} bColor='redLight' color='white' text={`PRICELIST ${upperCase(dt.node.heading)}`} />
                                                                 </th>
                                                         ) )
@@ -116,7 +116,7 @@ const Table = ({ data }) => {
                                                 <td>SETRIKA LANGSUNG</td>
                                                 {
                                                         data && data.map( dt => (
-                                                                <td>{dt.node.iron ? '✔' : '❌'}</td>
+                                                                <td key={`${dt.node.heading}-iron`}>{dt.node.iron ? '✔' : '❌'}</td>
                                                         ) )
                                                 }
                                         </tr>
@@ -124,7 +124,7 @@ const Table = ({ data }) => {
                                                 <td>WARNA TIDAK TERBATAS</td>
                                                 {
                                                         data && data.map( dt => (
-                                                                <td>{dt.node.color ? '✔' : '❌'}</td>
+                                                                <td key={`${dt.node.heading}-color`}>{dt.node.color ? '✔' : '❌'}</td>
                                                         ) )
                                                 }
                                         </tr>
@@ -132,17 +132,17 @@ const Table = ({ data }) => {
                                                 <td>WARNA GOLD/NEON/SILVER</td>
                                                 {
                                                         data && data.map( dt => (
-                                                                <td>{dt.node.gold ? '✔' : '❌'}</td>
+                                                                <td key={`${dt.node.heading}-gold`}>{dt.node.gold ? '✔' : '❌'}</td>
                                                         ) )
                                                 }
                                         </tr>
                                 </tbody>
-                        </div>
+                        </table>
 
-                        <div className="mobile">
+                        <table className="mobile">
                                 {
                                         data && data.map( dt => (
-                                                <>
+                                                <React.Fragment key={dt.node.heading}>
                                                         <thead>
                                                                 <tr>
                                                                         {/* <th /> */}
@@ -175,17 +175,17 @@ const Table = ({ data }) => {
                                                                         <td>{dt.node.gold ? '✔' : '❌'}</td>
                                                                 </tr>
                                                         </tbody>
-                                                </>
+                                                </React.Fragment>
                                         ) )
                                 }
-                        </div>
+                        </table>
                 </Container>
         )
 }
 
 Table.propTypes = {
 
-        data: PropTypes.objectOf(
+        data: PropTypes.arrayOf(
                 PropTypes.object,
         ).isRequired,
 }

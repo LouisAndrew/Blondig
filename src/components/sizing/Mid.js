@@ -10,9 +10,6 @@ const Mid = ({ node: { content } }) => {
       //index 1 should be misc
       const miscData = content[1].items
 
-      console.log(mainData, 'main')
-      console.log(miscData, 'misc')
-
       return (
             <Container>
                   <Content>

@@ -15,7 +15,7 @@ const Prices = ({ data: { node: { content } } }) => {
                 <h2>{main.items[0].heading} </h2>
                 <div className='items'>
                     {
-                        misc.items.map(item => <Card heading={item.heading} img={item.media[0].image.asset.fluid} subheading={item.misc} />)
+                        misc.items.map(item => <Card key={item.heading} heading={item.heading} img={item.media[0].image.asset.fluid} subheading={item.misc} />)
                     }
                 </div>
             </Content>
@@ -28,7 +28,7 @@ const Card = ({ heading, img, subheading }) => (
         <Img className='img' fluid={img} />
         <h3>{heading} </h3>
         {
-            subheading.map(item => <p>{item}</p>)
+            subheading.map(item => <p key={item}>{item}</p>)
         }
     </CardContent>
 )

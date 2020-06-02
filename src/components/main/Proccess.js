@@ -104,7 +104,7 @@ const Wrapper = styled.div`
             }
       }
 
-      @media only screen and (max-width: 1040px) {
+      @media only screen and (max-width: 1100px) {
             
             width: 35%;
 

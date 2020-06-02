@@ -19,7 +19,7 @@ const Content = styled.section`
 
         width: 50%;
 
-        &:nth-child(2) {
+        &:last-child {
 
             width: fit-content;
 
@@ -46,9 +46,11 @@ const Content = styled.section`
 
             &:last-child {
 
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                align-self: center;
+
+                .img {
+                    width: 200px;
+                }
             }
         }
     }

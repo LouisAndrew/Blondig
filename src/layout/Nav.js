@@ -70,6 +70,10 @@ const Content = styled.nav`
             #expand {
                   fill: #fff !important;
             }
+
+            .dropdown {
+                  background-color: rgba(0, 0, 0, .4) !important;
+            }
       }
 
       @media screen and (max-width: 840px) {
@@ -204,14 +208,17 @@ const Ul = styled.ul`
                               
                               display: flex;
                               flex-direction: column;
+
                               position: absolute;
                               top: 6vh;
-                              background-color: rgba(233, 233, 233, 0.8);
+                              
                               padding: 0;
                               max-height: 0;
                               overflow: hidden;
 
                               transition: .4s;
+                              background-color: rgba(233, 233, 233, 0.8);
+                              border-radius: 4px;
                         }
 
                         &:hover {

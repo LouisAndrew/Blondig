@@ -13,6 +13,7 @@ const Layout = props => {
             red: '#B83C2F',
             blue: '#3C64B1',
             redLight: '#EF6540',
+            grey: '#F3F3F3',
             center: () => (`
                   display: flex;
                   align-itmes: center;

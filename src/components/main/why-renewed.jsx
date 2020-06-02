@@ -8,13 +8,12 @@ import { extractPosMain } from '../../helper/extracts'
 
 const Container = styled.div`
 
-        background-color: #F4ECD8;
+        background-color: #fff;
+
+        padding: 5% 0;
 `
 
 const Content = styled.div`
-        
-        padding-top: 16vh !important;
-        padding-bottom: 16vh !important;
 
         h2 { 
                 text-align: center; 
@@ -26,7 +25,7 @@ const CardContainer = styled.div`
         
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         margin-top: 8vh;
 
@@ -42,11 +41,11 @@ const Card = styled.div`
         display: flex;
 
         margin-bottom: 4vh;
-        padding: 1rem 2rem;
-        width: 45%;
+        padding: 2rem;
+        width: 40%;
 
-        background-color: #F4ECD8;
-        border-radius: 8px;
+        background-color: ${({ theme }) => theme.grey};
+        border-radius: 6px;
         box-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
 
         .card-img {

@@ -55,7 +55,9 @@ const Container = styled.div`
       ${({ theme }) => theme.center()};
       width: 100%;
       
-      padding: 10% 0 5%;
+      padding: 5% 0;
+
+      background-color: ${({ theme }) => theme.grey};
 `
 
 const WhyCard = ({ fluid, heading, subheading }) => (

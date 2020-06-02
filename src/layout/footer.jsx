@@ -11,8 +11,7 @@ const Container = styled.div`
         padding-top: 5%;
         padding-bottom: 5%;
 
-        background-color: ${({ theme }) => theme.redLight};
-        color: #fff;
+        background-color: ${({ theme }) => theme.grey};
 
         @media screen and ( max-width: 640px ) {
 
@@ -82,7 +81,7 @@ const Links = styled.ul`
         li {
 
                 a {
-                        color: #fff;
+                        color: #000;
                         text-decoration: none;
                 }
 

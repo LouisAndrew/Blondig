@@ -11,18 +11,24 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
 
-    .size-input {
-
-        display: flex;
-        flex-flow: row wrap;
-        width: 100%;
-    }
-
     .pricing {
+
+        padding-top: 2vh;
 
         h3 {
 
             font-weight: normal;
+        }
+    }
+
+    .sizes {
+        padding-top: 2vh;
+
+        .size-input {
+
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
         }
     }
 
@@ -41,11 +47,12 @@ const Form = styled.form`
             width: 50%;
 
             &.sizes {
-
+/* 
                 display: flex;
-                flex-direction: column-reverse;
+                flex-direction: column-reverse; */
 
                 padding-top: 1vh;
+                padding-left: 5%;
             }
         }
     }
@@ -282,10 +289,20 @@ const PriceForm = props => {
                         id='size-gambar'
                     />
                 }
+                {
+                    ( price > 0 && priceColor > 0 ) ? 
+                        <div className='pricing'>
+                                    <h3>Harga Baju Polos:  Rp.{price},-</h3>
+                                    <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
+                        </div> :
+                        !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
+                }
             </div>
             <div className="sizes">
                 {
                     sizeFocus[0] && (
+                        <>
+                        <p>Available sizes:</p>
                         <div className='size-input'> 
                             {
                                 sizeFocus.map(x => (
@@ -296,15 +313,8 @@ const PriceForm = props => {
                                 ))
                             } 
                         </div>
+                        </>
                     )
-                }
-                {
-                    ( price > 0 && priceColor > 0 ) ? 
-                        <div className='pricing'>
-                                    <h3>Harga Baju Polos:  Rp.{price},-</h3>
-                                    <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
-                        </div> :
-                        !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
                 }
             </div>
         </Form>

@@ -12,7 +12,7 @@ const Container = styled.div`
 const Content = styled.section`
 
     display: flex;
-    margin: 15vh 0;
+    margin: 15vh 0 5%;
 
     .item {
 

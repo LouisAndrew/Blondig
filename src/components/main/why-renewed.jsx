@@ -11,6 +11,10 @@ const Container = styled.div`
         background-color: #fff;
 
         padding: 5% 0;
+
+        @media screen and ( max-width: 640px ) {
+                padding: 15% 0;
+        }
 `
 
 const Content = styled.div`

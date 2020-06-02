@@ -127,4 +127,8 @@ const Container = styled.div`
 
     display: flex;
     justify-content: center;
+
+    @media screen and ( max-width: 640px ) {
+        padding: 15% 0;
+    }
 `

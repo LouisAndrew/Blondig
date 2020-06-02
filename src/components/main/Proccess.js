@@ -58,6 +58,10 @@ const Container = styled.div`
       padding: 5% 0;
 
       background-color: ${({ theme }) => theme.grey};
+
+      @media screen and ( max-width: 640px ) {
+            padding: 15% 0;
+      }
 `
 
 const WhyCard = ({ fluid, heading, subheading }) => (

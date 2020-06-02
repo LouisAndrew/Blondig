@@ -36,7 +36,7 @@ const Form = styled.form`
         color: red;
     }
 
-    @media screen and ( max-width: 640px ) {
+    @media only screen and ( max-width: 640px ) {
 
         width: 100%;
 

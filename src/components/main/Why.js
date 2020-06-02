@@ -57,13 +57,13 @@ const Content = styled.section`
                   color: ${({ theme }) => theme.red};
             }
 
-            @media screen and (max-width: 900px) and (orientation: portrait) {
+            @media only screen and (max-width: 900px) and (orientation: portrait) {
                   
                   padding: 10vh 0;
             }
       }
 
-      @media screen and (max-width: 640px) {
+      @media only screen and (max-width: 640px) {
 
             .left {
                   width: 0;
@@ -89,7 +89,7 @@ const Container = styled.div`
             height: 100%;
             z-index: 2;
 
-            @media screen and (max-width: 640px) {
+            @media only screen and (max-width: 640px) {
                   display: none;
             }
       }
@@ -134,14 +134,14 @@ const Card = styled.div`
             }
       }
 
-      @media screen and (max-width: 900px) and (orientation: portrait) {
+      @media only screen and (max-width: 900px) and (orientation: portrait) {
             
             .card-img {
                   width: 25%;
             }
       }
 
-      @media screen and (max-width: 640px) and (orientation: portrait) {
+      @media only screen and (max-width: 640px) and (orientation: portrait) {
             
             .card-img {
                   width: 40%;

@@ -59,7 +59,7 @@ const MidItem = styled.div`
             }
       }
 
-      @media screen and (max-width: 640px) {
+      @media only screen and (max-width: 640px) {
             
             margin: 2vh 0;
 
@@ -84,7 +84,7 @@ const Content = styled.section`
                   margin: 8vh 0;
 
 
-                  @media screen and ( max-width: 640px ) {
+                  @media only screen and ( max-width: 640px ) {
                         
                         width: 120%;
                         transform: translate(-5%, 0);
@@ -107,7 +107,7 @@ const Content = styled.section`
                   width: 70%;
                   align-self: center;
 
-                  @media screen and ( max-width: 840px ) {
+                  @media only screen and ( max-width: 840px ) {
                         
                         width: 100%;
                   }
@@ -119,7 +119,7 @@ const Content = styled.section`
             width: 100%;
             display: flex;
 
-            @media screen and (max-width: 850px) {
+            @media only screen and (max-width: 850px) {
                   
                   flex-direction: column;
             }

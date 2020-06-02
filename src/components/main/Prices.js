@@ -71,23 +71,23 @@ const CardContent = styled.div`
         align-items: center;
         justify-content: center;
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
             
             height: 160px;
         }
     }
 
-    @media screen and ( max-width: 1400px ) {
+    @media only screen and ( max-width: 1400px ) {
         
         width: 40%;
         margin-bottom: 5%;
     }
 
-    @media only screen and ( max-width: 840px ) { 
+    @media only only screen and ( max-width: 840px ) { 
         
         width: 60%;
     }
-    @media screen and ( max-width: 640px ) {
+    @media only screen and ( max-width: 640px ) {
         
         width: 80%;
     }
@@ -114,7 +114,7 @@ const Content = styled.section`
 
         margin-top: 5vh;
 
-        @media screen and ( max-width: 1240px ) {
+        @media only screen and ( max-width: 1240px ) {
 
             justify-content: space-evenly;
         }
@@ -128,7 +128,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
 
-    @media screen and ( max-width: 640px ) {
+    @media only screen and ( max-width: 640px ) {
         padding: 15% 0;
     }
 `

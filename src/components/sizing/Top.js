@@ -64,12 +64,12 @@ const Content = styled.div`
             }
       }
 
-      @media screen and (max-width: 1150px) {
+      @media only screen and (max-width: 1150px) {
             
             width: 70%;
       }
 
-      @media screen and (max-width: 850px) { 
+      @media only screen and (max-width: 850px) { 
 
             width: 80%;
 
@@ -82,7 +82,7 @@ const Content = styled.div`
             }
       }
 
-      @media screen and (max-width: 640px) {
+      @media only screen and (max-width: 640px) {
 
             flex-direction: column;
 
@@ -135,7 +135,7 @@ const Table = styled.table`
             
             border-bottom: 1px solid #000;
 
-            @media screen and (max-width: 850px) {
+            @media only screen and (max-width: 850px) {
 
                   padding: 1rem;
             }

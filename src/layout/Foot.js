@@ -56,7 +56,7 @@ const NavCont = styled.ul`
             color: #000;
       }
 
-      @media screen and (max-width: 640px) {
+      @media only screen and (max-width: 640px) {
             
             flex-direction: column;
             align-items: flex-start;
@@ -118,7 +118,7 @@ const LI = styled.li`
             ${({ theme }) => theme.fitContainer()};
       }
 
-      @media screen and (max-width: 850px) {
+      @media only screen and (max-width: 850px) {
             
             height: 4vh;
             width: 4vh;

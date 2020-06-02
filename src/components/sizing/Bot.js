@@ -37,7 +37,7 @@ const Content = styled.section`
             text-align: center;
             font-weight: bold;
 
-            @media screen and ( orientation: portrait ) {
+            @media only screen and ( orientation: portrait ) {
                   
                   margin-bottom: 3vh;
             }
@@ -57,7 +57,7 @@ const Content = styled.section`
             margin-bottom: 10%;
       }
 
-      @media screen and (max-width: 850px) {
+      @media only screen and (max-width: 850px) {
             
             h2.bt {
                   text-align: center;
@@ -84,7 +84,7 @@ const Content = styled.section`
             }
       }
 
-      @media screen and (max-width: 640px) {
+      @media only screen and (max-width: 640px) {
             
             h2 {
                   text-align: center;

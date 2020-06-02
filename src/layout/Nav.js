@@ -76,7 +76,7 @@ const Content = styled.nav`
             }
       }
 
-      @media screen and (max-width: 840px) {
+      @media only screen and (max-width: 840px) {
 
             /* overwrite the .wrap global */
             padding: 1vh 10% !important;
@@ -243,7 +243,7 @@ const Ul = styled.ul`
       }
 
 
-      @media screen and (max-width: 840px) {
+      @media only screen and (max-width: 840px) {
             
             position: absolute;
             flex-direction: column;

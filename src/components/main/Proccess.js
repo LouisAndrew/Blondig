@@ -59,7 +59,7 @@ const Container = styled.div`
 
       background-color: ${({ theme }) => theme.grey};
 
-      @media screen and ( max-width: 640px ) {
+      @media only screen and ( max-width: 640px ) {
             padding: 15% 0;
       }
 `
@@ -104,11 +104,11 @@ const Wrapper = styled.div`
             }
       }
 
-      @media screen and (max-width: 1040px) {
+      @media only screen and (max-width: 1040px) {
             
             width: 35%;
 
-      @media screen and (max-width: 850px) {
+      @media only screen and (max-width: 850px) {
             
             .img {
                   width: 200px;
@@ -118,7 +118,7 @@ const Wrapper = styled.div`
             width: 45%;
       }
 
-      @media screen and (max-width: 640px) {
+      @media only screen and (max-width: 640px) {
             
             width: 100%;
 

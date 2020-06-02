@@ -12,7 +12,7 @@ const Container = styled.div`
 
         padding: 5% 0;
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
                 padding: 15% 0;
         }
 `
@@ -33,7 +33,7 @@ const CardContainer = styled.div`
 
         margin-top: 8vh;
 
-        @media screen and ( max-width: 840px ) {
+        @media only screen and ( max-width: 840px ) {
 
                 flex-flow: column wrap;
                 align-items: center;
@@ -63,7 +63,7 @@ const Card = styled.div`
                 margin-bottom: 1rem;
         }
 
-        @media screen and ( max-width: 1040px ) {
+        @media only screen and ( max-width: 1040px ) {
                 
                 .card-img {
                         height: calc( 125px * .8 );
@@ -75,12 +75,12 @@ const Card = styled.div`
                 }
         }
 
-        @media screen and ( max-width: 840px ) {
+        @media only screen and ( max-width: 840px ) {
                 
                 width: 60%;
         }
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
                 
                 width: 100%;
 

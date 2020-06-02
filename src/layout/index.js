@@ -73,7 +73,7 @@ const Layout = props => {
                   padding: 0 10%;
             }
 
-            @media screen and (max-width: 1150px) {
+            @media only screen and (max-width: 1150px) {
                   
                   :root {
                         font-size: 14px;
@@ -84,10 +84,10 @@ const Layout = props => {
                   }
             }
 
-            @media screen and (max-width: 640px) {
+            @media only screen and (max-width: 640px) {
                   
                   :root {
-                        font-size: 12px;
+                        font-size: 14px;
                   }
 
                   .wrap { 
@@ -95,14 +95,14 @@ const Layout = props => {
                   }
             }
 
-            @media screen and (min-width: 2000px) {
+            @media only screen and (min-width: 2000px) {
 
                   :root {
                         font-size: 20px;
                   }
             }
 
-            @media screen and (min-width: 3000px) {
+            @media only screen and (min-width: 3000px) {
 
             :root {
                   font-size: 24px;

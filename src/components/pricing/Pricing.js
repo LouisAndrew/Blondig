@@ -19,7 +19,7 @@ const Content = styled.section`
         width: 50%;
     }
 
-    @media screen and ( max-width: 640px ) {
+    @media only screen and ( max-width: 640px ) {
         
         flex-direction: column-reverse;
         margin: 15vh 0 5vh;

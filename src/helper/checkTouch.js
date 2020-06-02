@@ -1,6 +1,6 @@
 const checkTouch = () => {
 
-      //if the device is a touch screen device..
+      //if the device is a touch only screen device..
       const removeNoTouch = () => {
             document.documentElement.classList.remove('no-touch')
       }

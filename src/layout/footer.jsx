@@ -13,7 +13,7 @@ const Container = styled.div`
 
         background-color: ${({ theme }) => theme.grey};
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
 
                 padding-top: 15%;
                 padding-bottom: 15%;
@@ -43,7 +43,7 @@ const Content = styled.footer`
                 }
         }
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
                 
                 flex-direction: column;
                 align-items: center;
@@ -66,7 +66,7 @@ const ContactItem = styled.div`
                 }
         }
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
 
                 h3 {
                         text-align: center;
@@ -90,7 +90,7 @@ const Links = styled.ul`
                 }
         }
 
-        @media screen and ( max-width: 640px ) {
+        @media only screen and ( max-width: 640px ) {
                 
                 margin-top: 5vh;
 

@@ -56,6 +56,12 @@ const Form = styled.form`
                 flex-direction: row;
                 align-items: flex-start;
 
+                .err {
+
+                    padding-left: 10%;
+                    padding-top: 2vh;
+                }
+
                 & > div {
                     width: 50%;
 

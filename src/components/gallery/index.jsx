@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 const Container = styled.div`
 
@@ -18,22 +19,39 @@ const Content = styled.div`
         }
 `
 
-const Images = styled.div`
+const ImagesCont = styled.div`
         
         width: 100%;
+        margin: 5% 0;
 
         display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
 `
 
-const Gallery = props => {
+const Image = styled.div`
+        
+        width: 300px;
+        margin: 20px;
+`
+
+const Gallery = ({ content }) => {
+
+        console.log(content)
 
         return (
                 <Container>
                         <Content className='wrap'>
                                 <h1>Gallery and Testimonials</h1>
-                                <Images>
-
-                                </Images>
+                                <ImagesCont>
+                                        {
+                                                content.map( imgNode => (
+                                                        <Image>
+                                                                <Img fluid={imgNode.img.asset.fluid} />
+                                                        </Image>
+                                                ) )
+                                        }
+                                </ImagesCont>
                         </Content>
                 </Container>
         )

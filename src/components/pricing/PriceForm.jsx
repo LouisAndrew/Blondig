@@ -39,20 +39,45 @@ const Form = styled.form`
     @media only screen and ( max-width: 640px ) {
 
         width: 100%;
+        align-items: center;
 
-        flex-direction: row;
+        /* flex-direction: row; */
+
+        /* TODO: forms and prices row flex!! */
 
         & > div {
 
-            width: 50%;
+            /* width: 50%; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &.check {
+                flex-direction: row;
+                align-items: flex-start;
+
+                & > div {
+                    width: 50%;
+
+                    &.pricing {
+
+                        padding-left: 10%;
+                        padding-top: 0;
+                    }
+                }
+            }
 
             &.sizes {
 /* 
                 display: flex;
                 flex-direction: column-reverse; */
 
-                padding-top: 1vh;
-                padding-left: 5%;
+                /* padding-top: 1vh;
+                padding-left: 5%; */
+
+                .size-input {
+                    justify-content: center;
+                }
             }
         }
     }
@@ -257,7 +282,8 @@ const PriceForm = props => {
 
     return (
         <Form>
-            <div className="checks">
+            <div className='check'>
+                <div className='form'>
                 <CheckBox 
                     onChange={lenganChange} 
                     data={values.map(vl => formatOptions(vl))} 
@@ -289,11 +315,12 @@ const PriceForm = props => {
                         id='size-gambar'
                     />
                 }
+                </div>
                 {
                     ( price > 0 && priceColor > 0 ) ? 
                         <div className='pricing'>
-                                    <h3>Harga Baju Polos:  Rp.{price},-</h3>
-                                    <h3>Harga Baju Warna:  Rp.{priceColor},-</h3>
+                                    <h3>Harga Baju Polos: <strong>Rp.{price},-</strong></h3>
+                                    <h3>Harga Baju Warna: <strong>Rp.{priceColor},-</strong></h3>
                         </div> :
                         !sizeFocus ? <p>Product is not available</p> : <p className='err'>Form belum lengkap</p>
                 }

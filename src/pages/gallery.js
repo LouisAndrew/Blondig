@@ -23,6 +23,9 @@ export const query = graphql`
                         }
                     }
                 }
+                dateCreated
+                desc
+                url
             }
         }
     }

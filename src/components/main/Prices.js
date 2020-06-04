@@ -83,7 +83,7 @@ const CardContent = styled.div`
         margin-bottom: 5%;
     }
 
-    @media only only screen and ( max-width: 840px ) { 
+    @media only screen and ( max-width: 840px ) { 
         
         width: 60%;
     }
@@ -118,6 +118,11 @@ const Content = styled.section`
 
             justify-content: space-evenly;
         }
+    }
+
+    @media only screen and ( max-width: 640px ) {
+
+        h2 { text-align: center; }
     }
 `
 

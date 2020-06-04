@@ -149,8 +149,8 @@ const Footer = () => {
                                                 <li><h4>Quick Links.</h4></li>
                                                 <li><Link to='/'>Home</Link></li>
                                                 <li><Link to='/sizing'>Size Chart</Link></li>
-                                                <li><Link to='/sizing'>Harga</Link></li>
-                                                {/* <li><Link to='/gallery'>Gallery</Link></li> */}
+                                                <li><Link to='/pricing'>Harga</Link></li>
+                                                <li><Link to='/gallery'>Gallery</Link></li>
                                                 {/* <li><Link to='/contact'>Hubungi Kami</Link></li> */}
                                         </Links>
                                         <Logo id='logo-foot' />

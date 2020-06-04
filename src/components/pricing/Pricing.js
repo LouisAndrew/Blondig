@@ -13,15 +13,19 @@ const Container = styled.div`
 const Content = styled.section`
 
     display: flex;
+    justify-content: center;
     margin: 15vh 0 5%;
 
     .item {
 
-        width: 50%;
+        width: fit-content;
 
         &:last-child {
+            width: 35%;
+            padding-left: 10%;
+        }
 
-            width: fit-content;
+        &:first-child {
 
             display: flex;
             align-items: center;
@@ -36,15 +40,15 @@ const Content = styled.section`
 
     @media only screen and ( max-width: 640px ) {
         
-        flex-direction: column-reverse;
+        flex-direction: column;
         margin: 15vh 0 5vh;
 
         .item {
 
-            width: 100%;
+            width: 100% !important;
             margin: 2vh 0%;
 
-            &:last-child {
+            &:first-child {
 
                 align-self: center;
 
@@ -118,13 +122,13 @@ const Pricing = ({ allSanityTee: { edges: passedData } }) => {
         <Container>
             <Content className='wrap'>
                 <div className='item'>
-                    <PriceForm changeFocus={changeFocus} {...data} />
-                </div>
-                <div className='item'>
                     <div className='img'>
                         <Img fluid={displayImg ? displayImg.img.asset.fluid : defaultImg} />
                     </div>
                     <Button onClick={click} bColor='redLight' color='white' text='Cek sizing guide' />
+                </div>
+                <div className='item'>
+                    <PriceForm changeFocus={changeFocus} {...data} />
                 </div>
             </Content>
         </Container>

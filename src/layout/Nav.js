@@ -64,15 +64,19 @@ const Content = styled.nav`
             box-shadow: none;
 
             li a, span {
-                  color: #fff !important;
+                  /* color: #fff !important; */
             }
 
             #expand {
-                  fill: #fff !important;
+                  /* fill: #fff !important; */
             }
 
             .dropdown {
                   background-color: rgba(0, 0, 0, .4) !important;
+
+                  a {
+                        color: #fff !important;
+                  }
             }
       }
 
